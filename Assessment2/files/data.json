@@ -1,0 +1,26 @@
+{
+    "drink":
+    [
+        { 
+            "name":"Black Coffee",
+            "sugar":0,
+            "stock":10
+        },
+        {
+            "name": "White Coffee",
+            "sugar":4,
+            "stock":12
+        }
+    ],
+    "food":
+    [
+        {
+            "name":"chips",
+            "stock":5
+        },
+        {
+            "name":"candy",
+            "stock":8
+        }
+    ]
+}
