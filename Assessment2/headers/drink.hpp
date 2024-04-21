@@ -1,15 +1,14 @@
 #ifndef DRINK_H
 #define DRINK_H
 
-#include <string>
-#include <iostream>
+#include "food.hpp" // Include Food header
 
-using namespace std;
-
-class Drink {
+class Drink : public Food {
 public:
-    virtual ~Drink() {}
-    virtual string getName() const = 0;
+  virtual ~Drink() = default;
+  // Implement methods for drinks (e.g., name, price)
+  virtual std::string get_name() const override = 0;
+  virtual double get_price() const override = 0;
 };
 
-#endif 
+#endif // DRINK_H

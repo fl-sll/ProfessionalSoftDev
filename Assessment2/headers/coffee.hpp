@@ -1,18 +1,15 @@
 #ifndef COFFEE_H
 #define COFFEE_H
 
-#include <string>
-#include <iostream>
-#include "drink.hpp"
-
-using namespace std;
-
+#include "drink.hpp" // Include Drink header
 
 class Coffee : public Drink {
 public:
-    virtual ~Coffee() {}
-    virtual string getName() const = 0;
-    virtual string getMilkType() const = 0;
+  Coffee(int sugars = 0);
+  int get_sugars() const { return sugars_; }
+
+private:
+  int sugars_;
 };
 
-#endif 
+#endif // COFFEE_H
