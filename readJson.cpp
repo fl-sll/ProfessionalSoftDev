@@ -2,22 +2,50 @@
 #include "rapidjson/document.h"
 #include "rapidjson/filereadstream.h"
 #include <fstream>
+#include <sstream>
 using namespace std;
 using namespace rapidjson;
 // source
 // https://www.geeksforgeeks.org/rapidjson-file-read-write-in-cpp/
 class Drink
 {
-public:
     string name;
     int sugar;
     int stock;
-    void getDetails()
+
+public:
+    Drink(string name, int sugar, int stock)
     {
-        cout << name << " has " << sugar << " sugar. Stock = " << stock << endl;
+        this->name = name;
+        this->sugar = sugar;
+        this->stock = stock;
+    }
+    string getDetails()
+    {
+        stringstream ss;
+        ss << name << " has " << sugar << " sugar. Stock = " << stock;
+        return ss.str();
     }
 };
 
+class Food
+{
+    string name;
+    int stock;
+
+public:
+    Food(string name, int stock)
+    {
+        this->name = name;
+        this->stock = stock;
+    }
+    string getDetails()
+    {
+        stringstream ss;
+        ss << name << ". Stock = " << stock;
+        return ss.str();
+    }
+};
 class Patron
 {
 public:
@@ -30,6 +58,7 @@ public:
 
 void readMenu()
 {
+    cout << "making drinks" << endl;
     // Open the file for reading
     FILE *fp = fopen("./Assessment2/files/data.json", "r");
 
@@ -47,9 +76,33 @@ void readMenu()
     // Close the file
     fclose(fp);
 
-    // Access the data in the JSON document
-    std::cout << d["drink"][1]["name"].GetString() << std::endl;
-    // std::cout << d["age"].GetInt() << std::endl;
+    vector<Drink> drinkVector;
+
+    rapidjson::Value::ConstValueIterator itr;
+
+    for (itr = d["drink"].Begin(); itr != d["drink"].End(); ++itr)
+    {
+        // Drink* drink = new Drink();
+        string name = itr->GetObject()["name"].GetString();
+        int sugar = itr->GetObject()["sugar"].GetInt();
+        int stock = itr->GetObject()["stock"].GetInt();
+        drinkVector.push_back(Drink(name, sugar, stock));
+    }
+    for(int i = 0; i < drinkVector.size(); ++i){
+        cout << drinkVector[i].getDetails() << endl;
+    }
+
+    vector<Food> foodVector;
+    for (itr = d["food"].Begin(); itr != d["food"].End(); ++itr)
+    {
+        // Drink* drink = new Drink();
+        string name = itr->GetObject()["name"].GetString();
+        int stock = itr->GetObject()["stock"].GetInt();
+        foodVector.push_back(Food(name, stock));
+    }
+    for(int i = 0; i < foodVector.size(); ++i){
+        cout << foodVector[i].getDetails() << endl;
+    }
 }
 
 int main()

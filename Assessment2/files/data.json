@@ -15,11 +15,11 @@
     "food":
     [
         {
-            "name":"chips",
+            "name":"Chips",
             "stock":5
         },
         {
-            "name":"candy",
+            "name":"Candy",
             "stock":8
         }
     ]
