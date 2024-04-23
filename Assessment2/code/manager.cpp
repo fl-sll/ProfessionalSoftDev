@@ -1,6 +1,6 @@
-#include "././headers/manager.hpp"
-#include "././headers/foodmaker.hpp" // Include FoodMaker header (assuming implementation)
-#include "././headers/coffeemaker.hpp" // Include CoffeeMaker header (assuming implementation)
+#include "./../headers/manager.hpp"
+#include "./../headers/foodmaker.hpp" // Include FoodMaker header
+#include "./../headers/coffeemaker.hpp" // Include CoffeeMaker header 
 #include <iostream>
 
 void Manager::receive_order(const std::vector<Food>& food_items, const std::vector<std::pair<std::string, int>>& drink_items) {

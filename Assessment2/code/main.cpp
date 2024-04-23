@@ -1,6 +1,6 @@
-#include "././headers/patron.hpp"
-#include "././headers/host.hpp"
-#include "././headers/manager.hpp"
+#include "./../headers/patron.hpp"
+#include "./../headers/host.hpp"
+#include "./../headers/manager.hpp"
 #include <vector>
 
 int main() {
