@@ -1,6 +1,7 @@
 #include <iostream>
 #include "rapidjson/document.h"
 #include "rapidjson/filereadstream.h"
+#include <vector>
 #include <fstream>
 #include <sstream>
 using namespace std;
@@ -83,9 +84,9 @@ public:
         manager.informFood(food);
 
     }
-}
+};
 
-readMenu()
+void readMenu()
 {
     cout << "making drinks" << endl;
     // Open the file for reading
@@ -94,8 +95,7 @@ readMenu()
     // Use a FileReadStream to
     // read the data from the file
     char readBuffer[65536];
-    rapidjson::FileReadStream is(fp, readBuffer,
-                                 sizeof(readBuffer));
+    rapidjson::FileReadStream is(fp, readBuffer, sizeof(readBuffer));
 
     // Parse the JSON data
     // using a Document object
