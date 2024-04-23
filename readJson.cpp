@@ -56,7 +56,36 @@ public:
     };
 };
 
-void readMenu()
+class FoodMaker{
+    public:
+
+};
+
+class Manager
+{
+public:
+    // Manger();
+    void informFood(Food food){
+        FoodMaker foodMaker;
+
+    };
+    void informDrink(Drink drink);
+};
+
+class Host
+{
+public:
+    // Host();
+    void informManager(Drink drink, Food food)
+    {
+        Manager manager;
+        manager.informDrink(drink);
+        manager.informFood(food);
+
+    }
+}
+
+readMenu()
 {
     cout << "making drinks" << endl;
     // Open the file for reading
@@ -88,7 +117,8 @@ void readMenu()
         int stock = itr->GetObject()["stock"].GetInt();
         drinkVector.push_back(Drink(name, sugar, stock));
     }
-    for(int i = 0; i < drinkVector.size(); ++i){
+    for (int i = 0; i < drinkVector.size(); ++i)
+    {
         cout << drinkVector[i].getDetails() << endl;
     }
 
@@ -100,7 +130,8 @@ void readMenu()
         int stock = itr->GetObject()["stock"].GetInt();
         foodVector.push_back(Food(name, stock));
     }
-    for(int i = 0; i < foodVector.size(); ++i){
+    for (int i = 0; i < foodVector.size(); ++i)
+    {
         cout << foodVector[i].getDetails() << endl;
     }
 }
@@ -108,13 +139,13 @@ void readMenu()
 int main()
 {
     readMenu();
-    // string name;
-    // cout << "Enter patron name: ";
-    // cin >> name;
+    string name;
+    cout << "Enter patron name: ";
+    cin >> name;
 
-    // Patron patron;
-    // patron.name = name;
-    // patron.getName();
+    Patron patron;
+    patron.name = name;
+    patron.getName();
 
     return 0;
 }
