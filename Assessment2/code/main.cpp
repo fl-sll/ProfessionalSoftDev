@@ -5,7 +5,7 @@
 
 int main() {
   Patron patron("Alice");
-  patron.place_order({Food()}, {{"white", 2}}); // Order chips and white coffee with 2 sugars
+  patron.place_order({}, {{"white", 2}}); // Order chips and white coffee with 2 sugars
 
   Manager manager;
   Host host(manager);
@@ -14,7 +14,7 @@ int main() {
   // Manager calls FoodMaker and CoffeeMaker to prepare the order
   // ... (implementation details)
 
-  manager.order_done(host);
+  manager.order_complete(host);
 
   return 0;
 }
