@@ -82,11 +82,11 @@ public:
     void setHost(Host* hst) {
         host = hst;
     }
-    // Notify when coffee is ready
+    //? Notify when coffee is ready
     void coffeeReady() {
         std::cout << "Coffee is ready!" << std::endl;
     }
-    // Notify when food is ready
+    //? Notify when food is ready
     void foodReady() {
         std::cout << "Food is ready!" << std::endl;
     }
@@ -100,9 +100,9 @@ private:
 class FoodMaker {
 public:
     void makeFood(MenuItem* item) {
-        // Simulate making food
+        //? Simulate making food
         std::cout << "Making food: " << item->getName() << std::endl;
-        // Notify manager when food is ready
+        //? Notify manager when food is ready
         manager->foodReady();
     }
     void setManager(Manager* mgr) {
@@ -116,9 +116,9 @@ private:
 class CoffeeMaker {
 public:
     void makeCoffee(MenuItem* item) {
-        // Simulate making coffee
+        //? Simulate making coffee
         std::cout << "Making coffee: " << item->getName() << std::endl;
-        // Notify manager when coffee is ready
+        //? Notify manager when coffee is ready
         manager->coffeeReady();
     }
     void setManager(Manager* mgr) {
