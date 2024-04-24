@@ -1,6 +1,6 @@
 #include "./../header/sandwich.h"
 
-Sandwich::Sandwich(std::string name) : name(name), breadType(""), meatType(""), cheeseAmount(0), withVegetables(false), sauceType("") {}
+Sandwich::Sandwich(std::string name) : name(name), breadType(""), meatType(""), cheeseAmount(0), withVegetables(false), sauceType("") {};
 
 std::string Sandwich::getName() const
 {

@@ -4,7 +4,7 @@
 
 void Host::takeOrder(Patron* patron, Order* order) {
     manager->receiveOrder(patron, order);
-}
+};
 
 void Host::notifyPatron(std::string name, Order* order) {
     std::cout << "Order for " << name << " is ready:" << std::endl;
