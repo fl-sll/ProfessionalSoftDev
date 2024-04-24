@@ -1,8 +1,8 @@
 #include <iostream>
 #include "./rapidjson/include/rapidjson/document.h"
 #include "./rapidjson/include/rapidjson/filereadstream.h"
-#include "rapidjson/document.h"
-#include "rapidjson/filereadstream.h"
+// #include "rapidjson/document.h"
+// #include "rapidjson/filereadstream.h"
 #include <vector>
 #include <fstream>
 #include <sstream>
@@ -88,7 +88,7 @@ public:
     }
 };
 
-void readMenu()
+pair< vector<Drink>, vector<Food> > readMenu()
 {
     cout << "making drinks" << endl;
     // Open the file for reading
@@ -119,10 +119,10 @@ void readMenu()
         int stock = itr->GetObject()["stock"].GetInt();
         drinkVector.push_back(Drink(name, sugar, stock));
     }
-    for (int i = 0; i < drinkVector.size(); ++i)
-    {
-        cout << drinkVector[i].getDetails() << endl;
-    }
+    // for (int i = 0; i < drinkVector.size(); ++i)
+    // {
+    //     cout << drinkVector[i].getDetails() << endl;
+    // }
 
     vector<Food> foodVector;
     for (itr = d["food"].Begin(); itr != d["food"].End(); ++itr)
@@ -132,22 +132,39 @@ void readMenu()
         int stock = itr->GetObject()["stock"].GetInt();
         foodVector.push_back(Food(name, stock));
     }
-    for (int i = 0; i < foodVector.size(); ++i)
-    {
-        cout << foodVector[i].getDetails() << endl;
-    }
+    // for (int i = 0; i < foodVector.size(); ++i)
+    // {
+    //     cout << foodVector[i].getDetails() << endl;
+    // }
+
+    return make_pair(drinkVector, foodVector);
 }
 
 int main()
 {
-    readMenu();
-    string name;
-    cout << "Enter patron name: ";
-    cin >> name;
+    pair< vector<Drink>, vector<Food> > r = readMenu();
+    vector<Drink> drinkvector = r.first;
+    vector<Food> foodvector = r.second;
 
-    Patron patron;
-    patron.name = name;
-    patron.getName();
+    for (int i = 0; i < foodvector.size(); ++i)
+    {
+        cout << foodvector[i].getDetails() << endl;
+    }
+
+    for (int i = 0; i < drinkvector.size(); ++i)
+    {
+        cout << drinkvector[i].getDetails() << endl;
+    }
+    
+    // string name;
+    // cout << "Enter patron name: ";
+    // cin >> name;
+
+    // Patron patron;
+    // patron.name = name;
+    // patron.getName();
+
+    cout << typeid(r).name() << endl;
 
     return 0;
 }
