@@ -1,28 +1,34 @@
-#include "./../headers/manager.hpp"
-#include "./../headers/foodmaker.hpp" // Include FoodMaker header
-#include "./../headers/coffeemaker.hpp" // Include CoffeeMaker header 
+#include "./../header/manager.h"
+
 #include <iostream>
 
-void Manager::receive_order(const std::vector<Food>& food_items, const std::vector<std::pair<std::string, int>>& drink_items) {
-  for (const Food& food : food_items) {
-    make_food(food);
-  }
-  for (const auto& drink : drink_items) {
-    std::unique_ptr<Coffee> coffee = CoffeeMaker::create_coffee(drink.first, drink.second);
-    prepare_coffee(*coffee);
-  }
+void Manager::receiveOrder(Patron* patron, Order* order) {
+    for (auto item : order->getItems()) {
+        if (dynamic_cast<Food*>(item)) {
+            foodMaker->makeFood(item);
+        } else if (dynamic_cast<Coffee*>(item)) {
+            coffeeMaker->makeCoffee(item);
+        }
+    }
+    host->notifyPatron(patron->getName(), order);
 }
 
-void Manager::order_complete(Host& host) {
-  host.notify_complete(host); // Inform Host when order is ready
+void Manager::setFoodMaker(FoodMaker* maker) {
+    foodMaker = maker;
 }
 
-void Manager::make_food(const Food& food) {
-  // Simulate food preparation using Food methods
-  std::cout << "Preparing " << food.get_name() << " ..." << std::endl;
+void Manager::setCoffeeMaker(CoffeeMaker* maker) {
+    coffeeMaker = maker;
 }
 
-void Manager::prepare_coffee(Coffee& coffee) {
-  // Simulate coffee preparation using Coffee methods (e.g., adding milk/sugar)
-  std::cout << "Preparing " << coffee.get_sugars()  << "-sugar coffee..." << std::endl;
+void Manager::setHost(Host* hst) {
+    host = hst;
+}
+
+void Manager::coffeeReady() {
+    std::cout << "Coffee is ready!" << std::endl;
+}
+
+void Manager::foodReady() {
+    std::cout << "Food is ready!" << std::endl;
 }
