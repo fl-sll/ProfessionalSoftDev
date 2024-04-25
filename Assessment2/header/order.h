@@ -6,6 +6,7 @@
 
 class Order {
 public:
+    // template <typename
     void addItem(MenuItem* item);
     const std::vector<MenuItem*>& getItems() const;
 private:

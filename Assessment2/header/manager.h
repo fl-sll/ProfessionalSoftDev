@@ -4,7 +4,7 @@
 #include "host.h"
 #include "foodmaker.h"
 #include "food.h"
-#include "coffeeMaker.h"
+#include "coffeemaker.h"
 #include "coffee.h"
 #include "order.h"
 #include "patron.h"
