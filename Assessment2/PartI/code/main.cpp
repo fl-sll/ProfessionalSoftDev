@@ -15,18 +15,18 @@ using namespace std;
 int main()
 {
     //// Create objects
-    // Host host;
-    // Manager manager;
-    // FoodMaker foodMaker;
-    // CoffeeMaker coffeeMaker;
+    Host host;
+    Manager manager;
+    FoodMaker foodMaker;
+    CoffeeMaker coffeeMaker;
 
     //// Set relationships between objects
-    // host.setManager(&manager);
-    // manager.setHost(&host);
-    // manager.setFoodMaker(&foodMaker);
-    // manager.setCoffeeMaker(&coffeeMaker);
-    // foodMaker.setManager(&manager);
-    // coffeeMaker.setManager(&manager);
+    host.setManager(&manager);
+    manager.setHost(&host);
+    manager.setFoodMaker(&foodMaker);
+    manager.setCoffeeMaker(&coffeeMaker);
+    foodMaker.setManager(&manager);
+    coffeeMaker.setManager(&manager);
 
     // repeat for next customer, end to close shift
     bool Active = true;
@@ -59,7 +59,7 @@ int main()
         Patron patron(name);
         Order order;
 
-        cout << "Hi " << patron.getName() << "! Welcome to SAJA Café";
+        cout << "Hi " << patron.getName() << "! Welcome to SAJA Cafe!" << endl;
         bool again = true;
         // order more
         while(again)
@@ -67,7 +67,7 @@ int main()
             cout << "> What do you want to order?" << endl;
             cout << "1. Food    2. Coffee" << endl;
             int itemType;
-            cout << "Enter number here";
+            cout << "Enter number here: ";
             cin >> itemType;
 
             if (itemType == 1)
@@ -96,7 +96,7 @@ int main()
             }
             else if (itemType == 2)
             {
-                order.addItem(new Food(drinkvector[menuNumber - 1].getName()));   
+                order.addItem(new Coffee(drinkvector[menuNumber - 1].getName()));   
             }
 
             cout << "> Order more (y/n) : ";
@@ -120,7 +120,7 @@ int main()
         // order.addItem(new WhiteCoffee());
 
         //// host take order from patron and forwards to manager
-        // host.takeOrder(&patron, &order);
+        host.takeOrder(&patron, &order);
         cout << "Order complete, Next customer (y/n): ";
         string next;
         cin >> next;
@@ -131,6 +131,7 @@ int main()
             Active = false;
         }
     }
+    cout << "Closing shift. Goodnight!" << endl;
     return 0;
 
 }

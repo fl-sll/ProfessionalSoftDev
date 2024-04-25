@@ -21,6 +21,10 @@
         {
             "name":"Candy",
             "stock":8
+        },
+        {
+            "name":"Sandwich",
+            "stock":8
         }
     ]
 }

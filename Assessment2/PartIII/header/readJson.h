@@ -2,12 +2,12 @@
 #define READ_H
 
 #include <iostream>
-// #include "./../rapidjson/include/rapidjson/document.h"
-// #include "./../rapidjson/include/rapidjson/filereadstream.h"
+#include "./../../rapidjson/include/rapidjson/document.h"
+#include "./../../rapidjson/include/rapidjson/filereadstream.h"
 #include "./coffee.h"
 #include "./food.h"
-#include "rapidjson/document.h"
-#include "rapidjson/filereadstream.h"
+// #include "rapidjson/document.h"
+// #include "rapidjson/filereadstream.h"
 #include <vector>
 #include <fstream>
 #include <sstream>
@@ -59,7 +59,7 @@ pair<vector<Coffee>, vector<Food> > readMenu()
 {
     // cout << "making drinks" << endl;
     // Open the file for reading
-    FILE *fp = fopen("./Assessment2/files/data.json", "r");
+    FILE *fp = fopen("./../files/data.json", "r");
 
     // Use a FileReadStream to
     // read the data from the file

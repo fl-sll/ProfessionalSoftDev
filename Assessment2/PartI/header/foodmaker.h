@@ -8,6 +8,7 @@ class FoodMaker {
 public:
     void makeFood(MenuItem* item);
     void setManager(Manager* mgr);
+    
 private:
     Manager* manager;
 };
