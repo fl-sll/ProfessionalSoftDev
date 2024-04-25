@@ -1,6 +1,6 @@
 #include <iostream>
-#include "./rapidjson/include/rapidjson/document.h"
-#include "./rapidjson/include/rapidjson/filereadstream.h"
+#include "./../rapidjson/include/rapidjson/document.h"
+#include "./../rapidjson/include/rapidjson/filereadstream.h"
 // #include "rapidjson/document.h"
 // #include "rapidjson/filereadstream.h"
 #include <vector>
@@ -59,18 +59,18 @@ public:
     };
 };
 
-class FoodMaker{
-    public:
-
+class FoodMaker
+{
+public:
 };
 
 class Manager
 {
 public:
     // Manger();
-    void informFood(Food food){
+    void informFood(Food food)
+    {
         FoodMaker foodMaker;
-
     };
     void informDrink(Drink drink);
 };
@@ -84,11 +84,10 @@ public:
         Manager manager;
         manager.informDrink(drink);
         manager.informFood(food);
-
     }
 };
 
-pair< vector<Drink>, vector<Food> > readMenu()
+pair<vector<Drink>, vector<Food>> readMenu()
 {
     cout << "making drinks" << endl;
     // Open the file for reading
@@ -119,10 +118,6 @@ pair< vector<Drink>, vector<Food> > readMenu()
         int stock = itr->GetObject()["stock"].GetInt();
         drinkVector.push_back(Drink(name, sugar, stock));
     }
-    // for (int i = 0; i < drinkVector.size(); ++i)
-    // {
-    //     cout << drinkVector[i].getDetails() << endl;
-    // }
 
     vector<Food> foodVector;
     for (itr = d["food"].Begin(); itr != d["food"].End(); ++itr)
@@ -132,17 +127,13 @@ pair< vector<Drink>, vector<Food> > readMenu()
         int stock = itr->GetObject()["stock"].GetInt();
         foodVector.push_back(Food(name, stock));
     }
-    // for (int i = 0; i < foodVector.size(); ++i)
-    // {
-    //     cout << foodVector[i].getDetails() << endl;
-    // }
 
     return make_pair(drinkVector, foodVector);
 }
 
 int main()
 {
-    pair< vector<Drink>, vector<Food> > r = readMenu();
+    pair<vector<Drink>, vector<Food>> r = readMenu();
     vector<Drink> drinkvector = r.first;
     vector<Food> foodvector = r.second;
 
@@ -155,7 +146,7 @@ int main()
     {
         cout << drinkvector[i].getDetails() << endl;
     }
-    
+
     // string name;
     // cout << "Enter patron name: ";
     // cin >> name;
