@@ -28,10 +28,7 @@ int main()
     // foodMaker.setManager(&manager);
     // coffeeMaker.setManager(&manager);
 
-<<<<<<< Updated upstream
-=======
     // repeat for next customer, end to close shift
->>>>>>> Stashed changes
     bool Active = true;
     while (Active)
     {
@@ -134,10 +131,6 @@ int main()
             Active = false;
         }
     }
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
     return 0;
 
 }
