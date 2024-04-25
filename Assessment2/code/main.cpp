@@ -55,6 +55,13 @@ int main() {
     // Order order2;
     // order2.addItem(new Food("Candy Bar"));
     // order2.addItem(new BlackCoffee());
+
+    // SubSandwich* subSandwich = new SubSandwich();
+    // subSandwich->chooseBread("Wheat");
+    // subSandwich->chooseMeat("Turkey");
+    // subSandwich->addCheese(2);
+    // subSandwich->addVegetables(true);
+    // subSandwich->chooseSauce("Mayonnaise");
     // order2.addItem(new SubSandwich()); // Add a SubSandwich to the order
 
     //// Host takes order from patron and forwards to manager
