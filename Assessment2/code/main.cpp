@@ -8,8 +8,10 @@
 #include "./../header/host.h"
 // #include "./../header/sandwich.h" 
 
+using namespace std;
 
-int main() {
+int main()
+{
     //// Create objects
     Host host;
     Manager manager;
@@ -24,28 +26,38 @@ int main() {
     foodMaker.setManager(&manager);
     coffeeMaker.setManager(&manager);
 
+<<<<<<< Updated upstream
     //// Patron 1 enters the cafe
     Patron patron("Alice");
+=======
+    bool Active = true;
+    while (Active)
+    {
+        readMenu();
+        string name;
+        cout << "Patron name: ";
+        cin >> name;
+>>>>>>> Stashed changes
 
-    //// Patron gives order to the host
-    Order order;
-    order.addItem(new Food("Candy Bar"));
-    order.addItem(new Food("Chocolate Mousse"));
-    order.addItem(new BlackCoffee());
-    order.addItem(new WhiteCoffee());
+        //// Patron enters the cafe
+        Patron patron(name);
 
-    //// host take order from patron and forwards to manager
-    host.takeOrder(&patron, &order);
+        cout << "Hi " << patron.getName() << "! Welcome to SAJA Café";
+        cout << "> What do you want to order?" << endl;
 
+<<<<<<< Updated upstream
     Patron patron1("John"); // Patron 2 enters cafe
+=======
+>>>>>>> Stashed changes
 
-    //// Patron gives order to the host
-    Order order1;
-    order1.addItem(new Food("Candy Bar"));
-    order1.addItem(new Food("Chocolate Mousse"));
-    order1.addItem(new BlackCoffee());
-    order1.addItem(new WhiteCoffee());
+        //// Patron gives order to the host
+        Order order;
+        order.addItem(new Food("Candy Bar"));
+        order.addItem(new Food("Chocolate Mousse"));
+        order.addItem(new BlackCoffee());
+        order.addItem(new WhiteCoffee());
 
+<<<<<<< Updated upstream
     //// host take order from patron and forwards to manager
     // host.takeOrder(&patron2, &order2);
 
@@ -66,6 +78,11 @@ int main() {
 
     //// Host takes order from patron and forwards to manager
     // host.takeOrder(&patron2, &order2);
+=======
+        //// host take order from patron and forwards to manager
+        host.takeOrder(&patron, &order);
+    }
+>>>>>>> Stashed changes
 
     return 0;
 }
