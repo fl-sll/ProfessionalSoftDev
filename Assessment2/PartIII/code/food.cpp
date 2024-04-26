@@ -23,10 +23,10 @@ void Food::addStock(int amount){
     stock += amount;
 }
 
-void Food::delStock(){
-    // if (stock > 0)
-    // {
-    //     stock--;
-    // }
-    cout << "Test"
-}
+// void Food::delStock(){
+//     // if (stock > 0)
+//     // {
+//     //     stock--;
+//     // }
+//     cout << "Test"
+// }

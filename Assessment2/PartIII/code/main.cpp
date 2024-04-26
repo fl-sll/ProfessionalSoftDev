@@ -10,15 +10,19 @@
 #include "./../header/readJson.h"
 // #include "./../header/sandwich.h"
 
-using namespace std;
+// using namespace std;
 
 int main()
 {
+    std::pair<std::vector<Coffee>, std::vector<Food> > r = readMenu();
+    std::vector<Coffee> drinkvector = r.first;
+    std::vector<Food> foodvector = r.second;
+    
     //// Create objects
     Host host;
     Manager manager;
     FoodMaker foodMaker;
-    CoffeeMaker coffeeMaker;
+    CoffeeMaker coffeeMaker = CoffeeMaker(drinkvector);
 
     //// Set relationships between objects
     host.setManager(&manager);
@@ -34,64 +38,55 @@ int main()
     {
         // readMenu();
 
-        pair<vector<Coffee>, vector<Food> > r = readMenu();
-        vector<Coffee> drinkvector = r.first;
-        vector<Food> foodvector = r.second;
-
-        foodMaker.setData(foodvector);
-        coffeeMaker.setData(drinkvector);
-
-        string name;
+        std::string name;
 
         std::cout << "Patron name: ";
-        cin >> name;
+        std::cin >> name;
 
         //// Patron enters the cafe
         Patron patron(name);
         Order order;
 
-        std::cout << "Hi " << patron.getName() << "! Welcome to SAJA Cafe!" << endl;
+        std::cout << "Hi " << patron.getName() << "! Welcome to SAJA Cafe!" << std::endl;
         bool again = true;
         // order more
         while(again)
         {
-            std::cout << "> What do you want to order?" << endl;
-            std::cout << "1. Food    2. Coffee" << endl;
+            std::cout << "> What do you want to order?" << std::endl;
+            std::cout << "1. Food    2. Coffee" << std::endl;
             int itemType;
             std::cout << "Enter number here: ";
-            cin >> itemType;
+            std::cin >> itemType;
+            
 
             if (itemType == 1)
             {
-                std::cout << "Food menu:" << endl;
+                std::cout << "Food menu:" << std::endl;
                 for (int i = 0; i < foodvector.size(); ++i)
                 {
-                    std::cout << i + 1 << ": " << foodvector[i].getName() << endl;
+                    std::cout << i + 1 << ": " << foodvector[i].getName() << std::endl;
                 }
             }
             else if (itemType == 2)
             {
-                std::cout << "Coffee menu:" << endl;
+                std::cout << "Coffee menu:" << std::endl;
                 for (int i = 0; i < drinkvector.size(); ++i)
                 {
-                    std::cout << i + 1 << ": " << drinkvector[i].getName() << endl;
+                    std::cout << i + 1 << ": " << drinkvector[i].getName() << std::endl;
                 }
             }
             else{
                 continue;
+                
             }
 
             while(true){std::cout << "Enter number here: ";
             int menuNumber;
-            cin >> menuNumber;
+            std::cin >> menuNumber;
             if (itemType == 1 && menuNumber <= foodvector.size() && foodvector[menuNumber - 1].getStock() != 0)
             {
-                cout <<"stock: " << foodvector[menuNumber - 1].getStock() << endl;
-                // if (foodvector[menuNumber - 1].getStock() > 0) {
                 order.addItem(new Food(foodvector[menuNumber - 1].getName(), foodvector[menuNumber - 1].getStock()));
-                cout << foodvector[menuNumber - 1].getName() << " ordered" << endl;
-                // foodvector[menuNumber - 1].delStock();
-                // foodvector[menuNumber - 1].delStock();
+                std::cout << foodvector[menuNumber - 1].getName() << " ordered" << std::endl;
                 break;
                 //} else {
                     // cout << Sorry, the stock of the food is not available. <<endl;
@@ -99,23 +94,24 @@ int main()
             }
             else if (itemType == 2 && menuNumber <= drinkvector.size() && drinkvector[menuNumber - 1].getStock() != 0)
             {
-                cout << "Enter sugar pack amount: ";
+                std::cout << "Enter sugar pack amount: ";
                 int sugar;
-                cin >> sugar;
-                cout <<"stock: " << drinkvector[menuNumber - 1].getStock() << endl;
+                std::cin >> sugar;
+                // std::cout <<"stock: " << drinkvector[menuNumber - 1].getStock() << std::endl;
                 // MenuItem drink = new Coffee(drinkvector[menuNumber - 1].getName(), sugar);
                 order.addItem(new Coffee(drinkvector[menuNumber - 1].getName(), sugar, drinkvector[menuNumber - 1].getStock()));
-                cout << drinkvector[menuNumber - 1].getName() << " with " << sugar  << " sugar pack(s) ordered" << endl;
+                std::cout << drinkvector[menuNumber - 1].getName() << " with " << sugar  << " sugar pack(s) ordered" << std::endl;
                 // drinkvector[menuNumber - 1].delStock();
                 break;
+                
             }else{
                 continue;
             }
             }
 
             std::cout << "> Order more (y/n) : ";
-            string answer;
-            cin>> answer;
+            std::string answer;
+            std::cin>> answer;
 
             if (answer == "y" || answer == "Y" || answer == "Yes" || answer == "YES" || answer == "yes" || answer == "yEs"|| answer == "yeS"|| answer == "YEs" || answer == "yES"|| answer == "YeS"){
                 continue;
@@ -124,19 +120,12 @@ int main()
                 again = false;
             }
         }
-
-        //// Patron gives order to the host
-        // Order order;
-        // order.addItem(new Food("Candy Bar"));
-        // order.addItem(new Food("Chocolate Mousse"));
-        // order.addItem(new BlackCoffee());
-        // order.addItem(new WhiteCoffee());
-
+        
         //// host take order from patron and forwards to manager
         host.takeOrder(&patron, &order);
         std::cout << "Order complete, Next customer (y/n): ";
-        string next;
-        cin >> next;
+        std::string next;
+        std::cin >> next;
         if (next == "y"){
             continue;
         }
@@ -144,7 +133,7 @@ int main()
             Active = false;
         }
     }
-    std::cout << "Closing shift. Goodnight!" << endl;
+    std::cout << "Closing shift. Goodnight!" << std::endl;
     return 0;
 
 }
