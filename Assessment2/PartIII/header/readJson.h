@@ -4,6 +4,8 @@
 #include <iostream>
 #include "./../../../rapidjson-master/include/rapidjson/document.h"
 #include "./../../../rapidjson-master/include/rapidjson/filereadstream.h"
+#include "./../../../rapidjson-master/include/rapidjson/filewritestream.h"
+#include "./../../../rapidjson-master/include/rapidjson/prettywriter.h"
 #include "./coffee.h"
 #include "./food.h"
 // #include "rapidjson/document.h"
@@ -15,47 +17,8 @@ using namespace std;
 using namespace rapidjson;
 // source
 // https://www.geeksforgeeks.org/rapidjson-file-read-write-in-cpp/
-// class Drink
-// {
-//     string name;
-//     int sugar;
-//     int stock;
 
-// public:
-//     Drink(string name, int sugar, int stock)
-//     {
-//         this->name = name;
-//         this->sugar = sugar;
-//         this->stock = stock;
-//     }
-//     string getDetails()
-//     {
-// stringstream ss;
-// ss << name << " has " << sugar << " sugar. Stock = " << stock;
-// return ss.str();
-//     }
-// };
-
-// class Food
-// {
-//     string name;
-//     int stock;
-
-// public:
-//     Food(string name, int stock)
-//     {
-//         this->name = name;
-//         this->stock = stock;
-//     }
-//     string getDetails()
-//     {
-//         stringstream ss;
-//         ss << name << ". Stock = " << stock;
-//         return ss.str();
-//     }
-// };
-
-pair<vector<Coffee>, vector<Food> > readMenu()
+pair<vector<Coffee>, vector<Food>> readMenu()
 {
     // cout << "making drinks" << endl;
     // Open the file for reading
@@ -104,25 +67,74 @@ pair<vector<Coffee>, vector<Food> > readMenu()
     return make_pair(drinkVector, foodVector);
 }
 
-// int main()
-// {
-// pair<vector<Drink>, vector<Food>> r = readMenu();
-// vector<Drink> drinkvector = r.first;
-// vector<Food> foodvector = r.second;
+void updateJsonDrink(vector<Coffee> drink, int i)
+{
+    FILE *fp = fopen("./../files/data.json", "r");
 
-// for (int i = 0; i < foodvector.size(); ++i)
-// {
-//     cout << foodvector[i].getDetails() << endl;
-// }
+    // Use a FileReadStream to
+    // read the data from the file
+    char readBuffer[65536];
+    rapidjson::FileReadStream is(fp, readBuffer,
+                                 sizeof(readBuffer));
 
-// for (int i = 0; i < drinkvector.size(); ++i)
-// {
-//     cout << drinkvector[i].getDetails() << endl;
-// }
+    // Parse the JSON data
+    // using a Document object
+    rapidjson::Document d;
+    d.ParseStream(is);
 
-//     cout << typeid(r).name() << endl;
+    // Close the file
+    fclose(fp);
 
-//     return 0;
-// }
+    Value &stock = d["drink"][i]["stock"];
+    stock.SetInt(drink[i].getStock() - 1);
+
+    fp = fopen("./../files/data.json", "w");
+
+    // Use a FileWriteStream to
+    // write the data from the file
+    char writeBuffer[65536];
+    FileWriteStream os(fp, writeBuffer,
+                       sizeof(writeBuffer));
+
+    PrettyWriter<FileWriteStream> writer(os);
+    d.Accept(writer);
+    fclose(fp);
+}
+
+void updateJsonFood(vector<Food> food, int i)
+{
+    FILE *fp = fopen("./../files/data.json", "r");
+
+    // Use a FileReadStream to
+    // read the data from the file
+    char readBuffer[65536];
+    rapidjson::FileReadStream is(fp, readBuffer,
+                                 sizeof(readBuffer));
+
+    // Parse the JSON data
+    // using a Document object
+    rapidjson::Document d;
+    d.ParseStream(is);
+
+    // Close the file
+    fclose(fp);
+
+    Value &stock = d["food"][i]["stock"];
+    stock.SetInt(food[i].getStock() - 1);
+
+    // cout << drink.getName() << endl;
+
+    fp = fopen("./../files/data.json", "w");
+
+    // Use a FileWriteStream to
+    // write the data from the file
+    char writeBuffer[65536];
+    FileWriteStream os(fp, writeBuffer,
+                       sizeof(writeBuffer));
+
+    PrettyWriter<FileWriteStream> writer(os);
+    d.Accept(writer);
+    fclose(fp);
+}
 
 #endif
