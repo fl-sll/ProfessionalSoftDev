@@ -2,8 +2,8 @@
 #define READ_H
 
 #include <iostream>
-#include "./../../rapidjson/include/rapidjson/document.h"
-#include "./../../rapidjson/include/rapidjson/filereadstream.h"
+#include "./../../../rapidjson-master/include/rapidjson/document.h"
+#include "./../../../rapidjson-master/include/rapidjson/filereadstream.h"
 #include "./coffee.h"
 #include "./food.h"
 // #include "rapidjson/document.h"
@@ -84,7 +84,7 @@ pair<vector<Coffee>, vector<Food> > readMenu()
         string name = itr->GetObject()["name"].GetString();
         int sugar = itr->GetObject()["sugar"].GetInt();
         int stock = itr->GetObject()["stock"].GetInt();
-        Coffee coffee = Coffee(name);
+        Coffee coffee = Coffee(name, sugar, stock);
         coffee.addSugar(sugar);
         coffee.addStock(stock);
         drinkVector.push_back(coffee);
@@ -96,7 +96,7 @@ pair<vector<Coffee>, vector<Food> > readMenu()
         // Drink* drink = new Drink();
         string name = itr->GetObject()["name"].GetString();
         int stock = itr->GetObject()["stock"].GetInt();
-        Food food = Food(name);
+        Food food = Food(name, stock);
         food.addStock(stock);
         foodVector.push_back(food);
     }

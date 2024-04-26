@@ -5,10 +5,12 @@
 
 class Food : public MenuItem {
 public:
-    Food(std::string name);
+    Food(std::string name, int stock);
     std::string getName() const override;
+    int getStock() const override;
     void addStock(int amount);
     std::string getDetails();
+    void delStock();
 private:
     std::string name;
     int stock;

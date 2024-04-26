@@ -6,8 +6,9 @@
 class Coffee : public MenuItem
 {
 public:
-    Coffee(std::string name);
+    Coffee(std::string name, int sugar);
     std::string getName() const override;
+    int getSugar() const;
     void addSugar(int amount);
     std::string getDetails();
     void addStock(int amount);

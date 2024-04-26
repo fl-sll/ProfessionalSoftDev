@@ -38,79 +38,92 @@ int main()
         vector<Coffee> drinkvector = r.first;
         vector<Food> foodvector = r.second;
 
-        // for (int i = 0; i < foodvector.size(); ++i)
-        // {
-        //     cout << foodvector[i].getDetails() << endl;
-        // }
-
-        // for (int i = 0; i < drinkvector.size(); ++i)
-        // {
-        //     cout << drinkvector[i].getDetails() << endl;
-        // }
-
-        //! Food Maker and Coffee Maker check stock here
+        foodMaker.setData(foodvector);
+        coffeeMaker.setData(drinkvector);
 
         string name;
 
-        cout << "Patron name: ";
+        std::cout << "Patron name: ";
         cin >> name;
 
         //// Patron enters the cafe
         Patron patron(name);
         Order order;
 
-        cout << "Hi " << patron.getName() << "! Welcome to SAJA Cafe!" << endl;
+        std::cout << "Hi " << patron.getName() << "! Welcome to SAJA Cafe!" << endl;
         bool again = true;
         // order more
         while(again)
         {
-            cout << "> What do you want to order?" << endl;
-            cout << "1. Food    2. Coffee" << endl;
+            std::cout << "> What do you want to order?" << endl;
+            std::cout << "1. Food    2. Coffee" << endl;
             int itemType;
-            cout << "Enter number here: ";
+            std::cout << "Enter number here: ";
             cin >> itemType;
 
             if (itemType == 1)
             {
-                cout << "Food menu:" << endl;
+                std::cout << "Food menu:" << endl;
                 for (int i = 0; i < foodvector.size(); ++i)
                 {
-                    cout << i + 1 << ": " << foodvector[i].getName() << endl;
+                    std::cout << i + 1 << ": " << foodvector[i].getName() << endl;
                 }
             }
             else if (itemType == 2)
             {
-                cout << "Coffee menu:" << endl;
+                std::cout << "Coffee menu:" << endl;
                 for (int i = 0; i < drinkvector.size(); ++i)
                 {
-                    cout << i + 1 << ": " << drinkvector[i].getName() << endl;
+                    std::cout << i + 1 << ": " << drinkvector[i].getName() << endl;
                 }
             }
+            else{
+                continue;
+            }
 
-            cout << "Enter number here: ";
+            while(true){std::cout << "Enter number here: ";
             int menuNumber;
             cin >> menuNumber;
-            if (itemType == 1)
+            if (itemType == 1 && menuNumber <= foodvector.size() && foodvector[menuNumber - 1].getStock() != 0)
             {
-                order.addItem(new Food(foodvector[menuNumber - 1].getName()));
+                cout <<"stock: " << foodvector[menuNumber - 1].getStock() << endl;
+                // if (foodvector[menuNumber - 1].getStock() > 0) {
+                order.addItem(new Food(foodvector[menuNumber - 1].getName(), foodvector[menuNumber - 1].getStock()));
+                cout << foodvector[menuNumber - 1].getName() << " ordered" << endl;
+                // foodvector[menuNumber - 1].delStock();
+                // foodvector[menuNumber - 1].delStock();
+                break;
+                //} else {
+                    // cout << Sorry, the stock of the food is not available. <<endl;
+               // }
             }
-            else if (itemType == 2)
+            else if (itemType == 2 && menuNumber <= drinkvector.size() && drinkvector[menuNumber - 1].getStock() != 0)
             {
-                order.addItem(new Coffee(drinkvector[menuNumber - 1].getName()));   
+                cout << "Enter sugar pack amount: ";
+                int sugar;
+                cin >> sugar;
+                cout <<"stock: " << drinkvector[menuNumber - 1].getStock() << endl;
+                // MenuItem drink = new Coffee(drinkvector[menuNumber - 1].getName(), sugar);
+                order.addItem(new Coffee(drinkvector[menuNumber - 1].getName(), sugar, drinkvector[menuNumber - 1].getStock()));
+                cout << drinkvector[menuNumber - 1].getName() << " with " << sugar  << " sugar pack(s) ordered" << endl;
+                // drinkvector[menuNumber - 1].delStock();
+                break;
+            }else{
+                continue;
+            }
             }
 
-            cout << "> Order more (y/n) : ";
+            std::cout << "> Order more (y/n) : ";
             string answer;
             cin>> answer;
 
-            if (answer == "y"){
+            if (answer == "y" || answer == "Y" || answer == "Yes" || answer == "YES" || answer == "yes" || answer == "yEs"|| answer == "yeS"|| answer == "YEs" || answer == "yES"|| answer == "YeS"){
                 continue;
             }
-            else if(answer == "n"){
+            else if(answer == "n" || answer == "N" || answer == "NO" || answer == "No" || answer == "no" || answer == "nO"){
                 again = false;
             }
         }
-
 
         //// Patron gives order to the host
         // Order order;
@@ -121,7 +134,7 @@ int main()
 
         //// host take order from patron and forwards to manager
         host.takeOrder(&patron, &order);
-        cout << "Order complete, Next customer (y/n): ";
+        std::cout << "Order complete, Next customer (y/n): ";
         string next;
         cin >> next;
         if (next == "y"){
@@ -131,7 +144,7 @@ int main()
             Active = false;
         }
     }
-    cout << "Closing shift. Goodnight!" << endl;
+    std::cout << "Closing shift. Goodnight!" << endl;
     return 0;
 
 }
