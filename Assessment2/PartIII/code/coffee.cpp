@@ -26,14 +26,6 @@ void Coffee::addStock(int amount)
     stock += amount;
 }
 
-// void Coffee::delStock() {
-//     // if (stock > 0)
-//     // {
-//     //     stock--;
-//     // }
-//     cout << "Test";
-// }
-
 std::string Coffee::getDetails()
 {
     std::stringstream ss;

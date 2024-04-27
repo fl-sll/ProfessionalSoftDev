@@ -8,7 +8,8 @@ std::string Food::getName() const
     return name;
 }
 
-int Food::getStock() const{
+int Food::getStock() const
+{
     return stock;
 }
 
@@ -19,14 +20,7 @@ std::string Food::getDetails()
     return ss.str();
 }
 
-void Food::addStock(int amount){
+void Food::addStock(int amount)
+{
     stock += amount;
 }
-
-// void Food::delStock(){
-//     // if (stock > 0)
-//     // {
-//     //     stock--;
-//     // }
-//     cout << "Test"
-// }

@@ -1,20 +1,26 @@
 #include "./../header/foodmaker.h"
 #include "./../header/manager.h"
+#include "./../header/food.h"
+#include "./../header/readJson.h"
 #include <iostream>
 #include <windows.h>
+#include <vector>
 
+FoodMaker::FoodMaker(std::vector<Food> food):food(food){}
 
-void FoodMaker::makeFood(MenuItem* item) {
+void FoodMaker::makeFood(MenuItem *item)
+{
     std::cout << "Making food: " << item->getName() << std::endl;
+    this->delStock(item->getName());
     Sleep(1000);
-    // item->delStock();
-    // this->delStock(item);    
     manager->foodReady();
 };
 
-void FoodMaker::setManager(Manager* mgr) {
+void FoodMaker::setManager(Manager *mgr)
+{
     manager = mgr;
 }
-void FoodMaker::delStock(MenuItem* item) {
-    // std::cout << stock_data;
+void FoodMaker::delStock(std::string name)
+{
+    updateJsonFood(food, name);
 }
