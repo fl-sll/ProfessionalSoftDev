@@ -13,8 +13,7 @@ public:
     void makeCoffee(MenuItem* item);
     void setManager(Manager* mgr);
     void delStock(std::string name);
-    // void setVector(std::vector<Coffee>* vector);
-    // void setData(<vector<Coffee>>* data);
+
 private:
     Manager* manager;
     std::vector<Coffee> drinks;

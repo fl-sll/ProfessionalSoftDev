@@ -11,6 +11,7 @@ public:
     void takeOrder(Patron* patron, Order* order);
     void notifyPatron(std::string name, Order* order);
     void setManager(Manager* mgr);
+
 private:
     Manager* manager;
 };

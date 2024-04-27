@@ -14,7 +14,6 @@ public:
     void makeFood(MenuItem *item);
     void setManager(Manager *mgr);
     void delStock(std::string name);
-    // void setData(vector<Food>* data);
 
 private:
     Manager *manager;

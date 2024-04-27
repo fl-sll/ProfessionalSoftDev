@@ -17,6 +17,7 @@ public:
     void setHost(Host* hst);
     void coffeeReady();
     void foodReady();
+
 private:
     FoodMaker* foodMaker;
     CoffeeMaker* coffeeMaker;

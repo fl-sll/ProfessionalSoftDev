@@ -3,12 +3,12 @@
         {
             "name": "Black Coffee",
             "sugar": 0,
-            "stock": 10
+            "stock": 9
         },
         {
             "name": "White Coffee",
             "sugar": 4,
-            "stock": 12
+            "stock": 10
         }
     ],
     "food": [
@@ -18,11 +18,11 @@
         },
         {
             "name": "Candy",
-            "stock": 8
+            "stock": 6
         },
         {
             "name": "Sandwich",
-            "stock": 8
+            "stock": 0
         }
     ]
 }

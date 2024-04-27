@@ -20,4 +20,5 @@ protected:
     int sugars;
     int stock;
 };
+
 #endif // COFFEE_H

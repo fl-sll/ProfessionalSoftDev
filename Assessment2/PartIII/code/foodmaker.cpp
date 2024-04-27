@@ -8,19 +8,17 @@
 
 FoodMaker::FoodMaker(std::vector<Food> food):food(food){}
 
-void FoodMaker::makeFood(MenuItem *item)
-{
+void FoodMaker::makeFood(MenuItem *item) {
     std::cout << "Making food: " << item->getName() << std::endl;
     this->delStock(item->getName());
     Sleep(1000);
     manager->foodReady();
 };
 
-void FoodMaker::setManager(Manager *mgr)
-{
+void FoodMaker::setManager(Manager *mgr) {
     manager = mgr;
 }
-void FoodMaker::delStock(std::string name)
-{
+
+void FoodMaker::delStock(std::string name) {
     updateJsonFood(food, name);
 }

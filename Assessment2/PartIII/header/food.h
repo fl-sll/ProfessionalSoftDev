@@ -10,7 +10,7 @@ public:
     int getStock() const override;
     void addStock(int amount);
     std::string getDetails();
-    // void delStock();
+
 private:
     std::string name;
     int stock;

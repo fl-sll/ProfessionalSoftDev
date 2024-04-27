@@ -13,14 +13,14 @@
 #include <vector>
 #include <fstream>
 #include <sstream>
-// using namespace std;
+
 using namespace rapidjson;
+
 // source
 // https://www.geeksforgeeks.org/rapidjson-file-read-write-in-cpp/
 
 inline std::pair<std::vector<Coffee>, std::vector<Food>> readMenu()
 {
-    // cout << "making drinks" << endl;
     // Open the file for reading
     FILE *fp = fopen("./../files/data.json", "r");
 
@@ -41,9 +41,7 @@ inline std::pair<std::vector<Coffee>, std::vector<Food>> readMenu()
 
     rapidjson::Value::ConstValueIterator itr;
 
-    for (itr = d["drink"].Begin(); itr != d["drink"].End(); ++itr)
-    {
-        // Drink* drink = new Drink();
+    for (itr = d["drink"].Begin(); itr != d["drink"].End(); ++itr) {
         std::string name = itr->GetObject()["name"].GetString();
         int sugar = itr->GetObject()["sugar"].GetInt();
         int stock = itr->GetObject()["stock"].GetInt();
@@ -52,8 +50,7 @@ inline std::pair<std::vector<Coffee>, std::vector<Food>> readMenu()
     }
 
     std::vector<Food> foodVector;
-    for (itr = d["food"].Begin(); itr != d["food"].End(); ++itr)
-    {
+    for (itr = d["food"].Begin(); itr != d["food"].End(); ++itr) {
         // Drink* drink = new Drink();
         std::string name = itr->GetObject()["name"].GetString();
         int stock = itr->GetObject()["stock"].GetInt();
@@ -64,15 +61,13 @@ inline std::pair<std::vector<Coffee>, std::vector<Food>> readMenu()
     return make_pair(drinkVector, foodVector);
 }
 
-inline void updateJsonDrink(std::vector<Coffee> drink, std::string name)
-{
+inline void updateJsonDrink(std::vector<Coffee> drink, std::string name) {
     FILE *fp = fopen("./../files/data.json", "r");
 
     // Use a FileReadStream to
     // read the data from the file
     char readBuffer[65536];
-    rapidjson::FileReadStream is(fp, readBuffer,
-                                 sizeof(readBuffer));
+    rapidjson::FileReadStream is(fp, readBuffer, sizeof(readBuffer));
 
     // Parse the JSON data
     // using a Document object
@@ -82,22 +77,16 @@ inline void updateJsonDrink(std::vector<Coffee> drink, std::string name)
     // Close the file
     fclose(fp);
 
-    for (int i = 0; i < drink.size(); i++)
-    {
-        if (d["drink"][i]["name"].GetString() == name)
-        {
+    for (int i = 0; i < drink.size(); i++) {
+        if (d["drink"][i]["name"].GetString() == name) {
             Value &stock = d["drink"][i]["stock"];
-            std::cout << drink[i].getStock() - 1<< std::endl;
-            // stock.SetInt(drink[i].getStock() - 1);
-            continue;
-        }
-        else
-        {
+            stock.SetInt(drink[i].getStock() - 1);
             break;
         }
+        else {
+            continue;
+        }
     }
-
-    // cout << drink.getName() << endl;
 
     fp = fopen("./../files/data.json", "w");
 
@@ -110,11 +99,9 @@ inline void updateJsonDrink(std::vector<Coffee> drink, std::string name)
     PrettyWriter<FileWriteStream> writer(os);
     d.Accept(writer);
     fclose(fp);
-    // std::cout<< "updated" << drink[i].getDetails()<< std::endl;
 }
 
-inline void updateJsonFood(std::vector<Food> food, int i)
-{
+inline void updateJsonFood(std::vector<Food> food, std::string name) {
     FILE *fp = fopen("./../files/data.json", "r");
 
     // Use a FileReadStream to
@@ -131,10 +118,19 @@ inline void updateJsonFood(std::vector<Food> food, int i)
     // Close the file
     fclose(fp);
 
-    Value &stock = d["food"][i]["stock"];
-    stock.SetInt(food[i].getStock() - 1);
-
-    // cout << drink.getName() << endl;
+    for (int i = 0; i < food.size(); i++)
+    {
+        if (d["food"][i]["name"].GetString() == name)
+        {
+            Value &stock = d["food"][i]["stock"];
+            stock.SetInt(food[i].getStock() - 1);
+            break;
+        }
+        else
+        {
+            continue;
+        }
+    }
 
     fp = fopen("./../files/data.json", "w");
 
