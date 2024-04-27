@@ -32,7 +32,3 @@ std::string Coffee::getDetails()
     ss << name << " has " << sugars << " sugar. Stock = " << stock;
     return ss.str();
 }
-
-BlackCoffee::BlackCoffee() : Coffee("Black Coffee", 0, stock) {}
-
-WhiteCoffee::WhiteCoffee() : Coffee("White Coffee", 4, stock) {}

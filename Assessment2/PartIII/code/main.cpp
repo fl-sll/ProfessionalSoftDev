@@ -21,7 +21,7 @@ int main()
     //// Create objects
     Host host;
     Manager manager;
-    FoodMaker foodMaker;
+    FoodMaker foodMaker = FoodMaker(foodvector);
     CoffeeMaker coffeeMaker = CoffeeMaker(drinkvector);
 
     //// Set relationships between objects
@@ -85,26 +85,34 @@ int main()
             std::cin >> menuNumber;
             if (itemType == 1 && menuNumber <= foodvector.size() && foodvector[menuNumber - 1].getStock() != 0)
             {
-                order.addItem(new Food(foodvector[menuNumber - 1].getName(), foodvector[menuNumber - 1].getStock()));
-                std::cout << foodvector[menuNumber - 1].getName() << " ordered" << std::endl;
-                break;
-                //} else {
-                    // cout << Sorry, the stock of the food is not available. <<endl;
-               // }
+                if(foodvector[menuNumber-1].getStock()!=0){
+                    order.addItem(new Food(foodvector[menuNumber - 1].getName(), foodvector[menuNumber - 1].getStock()));
+                    std::cout << foodvector[menuNumber - 1].getName() << " ordered" << std::endl;
+                    break;
+                }
+                else {
+                    std::cout << "Sorry, we ran out of " << foodvector[menuNumber - 1].getName() <<std::endl;
+                    break;
+                }
             }
             else if (itemType == 2 && menuNumber <= drinkvector.size() && drinkvector[menuNumber - 1].getStock() != 0)
             {
-                std::cout << "Enter sugar pack amount: ";
-                int sugar;
-                std::cin >> sugar;
-                // std::cout <<"stock: " << drinkvector[menuNumber - 1].getStock() << std::endl;
-                // MenuItem drink = new Coffee(drinkvector[menuNumber - 1].getName(), sugar);
-                order.addItem(new Coffee(drinkvector[menuNumber - 1].getName(), sugar, drinkvector[menuNumber - 1].getStock()));
-                std::cout << drinkvector[menuNumber - 1].getName() << " with " << sugar  << " sugar pack(s) ordered" << std::endl;
-                // drinkvector[menuNumber - 1].delStock();
-                break;
+                if(drinkvector[menuNumber-1].getStock()!=0)
+                {
+                    std::cout << "Enter sugar pack amount: ";
+                    int sugar;
+                    std::cin >> sugar;
+                    order.addItem(new Coffee(drinkvector[menuNumber - 1].getName(), sugar, drinkvector[menuNumber - 1].getStock()));
+                    std::cout << drinkvector[menuNumber - 1].getName() << " with " << sugar  << " sugar pack(s) ordered" << std::endl;
+                    break;
+                }
+                else{
+                    std::cout << "Sorry, we ran out of " << drinkvector[menuNumber - 1].getName() <<std::endl;
+                    break;
+                }
                 
-            }else{
+            }
+            else{
                 continue;
             }
             }

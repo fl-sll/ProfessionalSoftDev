@@ -20,17 +20,4 @@ protected:
     int sugars;
     int stock;
 };
-
-class BlackCoffee : public Coffee
-{
-public:
-    BlackCoffee();
-};
-
-class WhiteCoffee : public Coffee
-{
-public:
-    WhiteCoffee();
-};
-
 #endif // COFFEE_H
