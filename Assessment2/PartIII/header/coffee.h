@@ -9,7 +9,7 @@ public:
     Coffee(std::string name, int sugar, int stock);
     std::string getName() const override;
     int getStock() const override;
-    void delStock();
+    // void delStock();
     int getSugar() const;
     void addSugar(int amount);
     std::string getDetails();

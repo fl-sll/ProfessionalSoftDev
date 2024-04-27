@@ -2,20 +2,23 @@
 #define FOOD_MAKER_H
 
 #include <vector>
+#include "food.h"
 
 class Manager;
 class MenuItem;
 
-class FoodMaker {
+class FoodMaker
+{
 public:
-    void makeFood(MenuItem* item);
-    void setManager(Manager* mgr);
-    void delStock(MenuItem* item);
+    FoodMaker(std::vector<Food> food);
+    void makeFood(MenuItem *item);
+    void setManager(Manager *mgr);
+    void delStock(std::string name);
     // void setData(vector<Food>* data);
-    
+
 private:
-    Manager* manager;
-    // vector<Food>* stock_data;
+    Manager *manager;
+    std::vector<Food> food;
 };
 
-#endif  // FOOD_MAKER_H
+#endif // FOOD_MAKER_H
