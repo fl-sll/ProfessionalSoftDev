@@ -3,22 +3,22 @@
         {
             "name": "Black Coffee",
             "sugar": 0,
-            "stock": 9
+            "stock": 6
         },
         {
             "name": "White Coffee",
             "sugar": 4,
-            "stock": 10
+            "stock": 9
         }
     ],
     "food": [
         {
             "name": "Chips",
-            "stock": 5
+            "stock": 3
         },
         {
             "name": "Candy",
-            "stock": 6
+            "stock": 4
         },
         {
             "name": "Sandwich",
