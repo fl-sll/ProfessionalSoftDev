@@ -1,7 +1,7 @@
 #include "./../header/coffee.h"
 #include <sstream>
 
-Coffee::Coffee(std::string name, int sugar, int stock) : name(name), sugars(sugar), stock(stock) {}
+Coffee::Coffee(std::string name, float sugar, int stock) : name(name), sugars(sugar), stock(stock) {}
 
 std::string Coffee::getName() const {
     return name;
@@ -11,11 +11,11 @@ int Coffee::getStock() const {
     return stock;
 }
 
-int Coffee::getSugar() const {
+float Coffee::getSugar() const {
     return sugars;
 }
 
-void Coffee::addSugar(int amount) {
+void Coffee::addSugar(float amount) {
     sugars += amount;
 }
 

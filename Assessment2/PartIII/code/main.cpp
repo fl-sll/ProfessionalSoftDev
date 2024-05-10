@@ -90,7 +90,7 @@ int main()
                 else if (itemType == 2 && menuNumber <= drinkvector.size()) {
                     if(drinkvector[menuNumber-1].getStock()!=0) {
                         std::cout << "Enter sugar pack amount: ";
-                        int sugar;
+                        float sugar;
                         std::cin >> sugar;
                         order.addItem(new Coffee(drinkvector[menuNumber - 1].getName(), sugar, drinkvector[menuNumber - 1].getStock()));
                         std::cout << drinkvector[menuNumber - 1].getName() << " with " << sugar  << " sugar pack(s) ordered" << std::endl;
