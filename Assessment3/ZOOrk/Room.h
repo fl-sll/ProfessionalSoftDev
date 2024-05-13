@@ -33,11 +33,20 @@ public:
 
     std::shared_ptr<Passage> getPassage(const std::string &);
 
+    std::string getDescription() const;
+
 protected:
 //    std::vector<Item*> items;
 //    std::vector<Character*> characters;
     std::map<std::string, std::shared_ptr<Passage>> passageMap;
+
+private:
+    std::string name;
+    std::string description;
+    std::vector<Item> items;
+
 };
+
 
 
 #endif //ZOORK_ROOM_H

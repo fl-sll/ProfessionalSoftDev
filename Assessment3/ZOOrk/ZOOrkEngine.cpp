@@ -5,6 +5,7 @@
 #include "ZOOrkEngine.h"
 
 #include <utility>
+#include "../../../../../../msys64/mingw64/include/c++/11.2.0/bits/algorithmfwd.h"
 
 ZOOrkEngine::ZOOrkEngine(std::shared_ptr<Room> start) {
     player = Player::instance();
@@ -65,7 +66,10 @@ void ZOOrkEngine::handleGoCommand(std::vector<std::string> arguments) {
 
 void ZOOrkEngine::handleLookCommand(std::vector<std::string> arguments) {
     // To be implemented
-    std::cout << "This functionality is not yet enabled.\n";
+    Room* currentRoom = player->getCurrentRoom();
+    std::cout << currentRoom->getDescription() << std::endl;
+
+    // std::cout << "This functionality is not yet enabled.\n";
 }
 
 void ZOOrkEngine::handleTakeCommand(std::vector<std::string> arguments) {
