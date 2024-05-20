@@ -4,7 +4,9 @@
 
 #include "ZOOrkEngine.h"
 
-#include <utility>
+#include <string>
+#include <iostream>
+#include <vector>
 #include "../../../../../../msys64/mingw64/include/c++/11.2.0/bits/algorithmfwd.h"
 
 ZOOrkEngine::ZOOrkEngine(std::shared_ptr<Room> start) {
@@ -74,12 +76,43 @@ void ZOOrkEngine::handleLookCommand(std::vector<std::string> arguments) {
 
 void ZOOrkEngine::handleTakeCommand(std::vector<std::string> arguments) {
     // To be implemented
-    std::cout << "This functionality is not yet enabled.\n";
+    if (arguments.empty()) {
+        std::cout << "Take what?" << std::endl;
+        return;
+    }
+
+    std::string itemName = arguments[0]; // Assuming single word item names for simplicity
+    Room* currentRoom = Player::instance()->getCurrentRoom();
+
+    if (currentRoom->hasItem(itemName)) {
+        Item item = currentRoom->takeItem(itemName);
+        Player::instance()->addItem(item);
+        std::cout << "You took the " << itemName << "." << std::endl;
+    } else {
+        std::cout << "There is no " << itemName << " here." << std::endl;
+    }
+    // std::cout << "This functionality is not yet enabled.\n";
 }
 
 void ZOOrkEngine::handleDropCommand(std::vector<std::string> arguments) {
     // To be implemented
-    std::cout << "This functionality is not yet enabled.\n";
+    if (arguments.empty()) {
+        std::cout << "Drop what?" << std::endl;
+        return;
+    }
+
+    std::string itemName = arguments[0]; // Assuming single word item names for simplicity
+    Room* currentRoom = Player::instance()->getCurrentRoom();
+
+    if (Player::instance()->hasItem(itemName)) {
+        Item item = currentRoom->takeItem(itemName); // Use takeItem to get the item object
+        Player::instance()->removeItem(itemName);
+        currentRoom->addItem(item);
+        std::cout << "You dropped the " << itemName << "." << std::endl;
+    } else {
+        std::cout << "You don't have a " << itemName << "." << std::endl;
+    }
+    // std::cout << "This functionality is not yet enabled.\n";
 }
 
 void ZOOrkEngine::handleQuitCommand(std::vector<std::string> arguments) {

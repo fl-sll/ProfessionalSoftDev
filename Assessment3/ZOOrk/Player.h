@@ -9,6 +9,9 @@
 #include "Location.h"
 #include "NullRoom.h"
 
+#include <vector>
+#include <algorithm>
+
 class Player : public Character {
 public:
     static Player *instance() {
@@ -20,16 +23,20 @@ public:
     }
 
     void setCurrentRoom(Room*);
-
     Room* getCurrentRoom() const;
 
-    Player(const Player &) = delete;
+    void addItem(const Item& item);
+    void removeItem(const std::string& itenName);
+    bool hasItem(const std::string& itemname) const;
+    void showInventory() const;
 
+    Player(const Player &) = delete;
     Player &operator=(const Player &) = delete;
 
 private:
     static Player *playerInstance;
     Room* currentRoom;
+    std::vector<Item> inventory;
 
     Player() : Character("You", "You are a person, alike in dignity to any other, but uniquely you."),
                currentRoom(new NullRoom()) {}
