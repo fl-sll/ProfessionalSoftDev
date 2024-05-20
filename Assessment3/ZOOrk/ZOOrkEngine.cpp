@@ -87,6 +87,7 @@ void ZOOrkEngine::handleTakeCommand(std::vector<std::string> arguments) {
     if (currentRoom->hasItem(itemName)) {
         Item item = currentRoom->takeItem(itemName);
         Player::instance()->addItem(item);
+        // currentRoom -> removeItem(itemName);
         std::cout << "You took the " << itemName << "." << std::endl;
     } else {
         std::cout << "There is no " << itemName << " here." << std::endl;
