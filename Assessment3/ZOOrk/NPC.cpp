@@ -32,8 +32,7 @@ void NPC::interact(Player& player) {
 
 void NPC::friendlyInteract(Player& player) {
     std::cout << getName() << " says: " << getDialogue() << std::endl;
-    // Example: Give the player an item
-    Item hintItem("Hint Note", "A note with a hint for your next step.");
+    auto hintItem = std::make_shared<Object>("Hint Note", "A note with a hint for your next step.");
     player.addItem(hintItem);
     std::cout << getName() << " gives you a hint note." << std::endl;
 }
@@ -42,4 +41,15 @@ void NPC::hostileInteract(Player& player) {
     std::cout << getName() << " attacks you!" << std::endl;
     player.takeDamage(attackPower);
     std::cout << "You take " << attackPower << " damage. Your health is now " << player.getHealth() << "." << std::endl;
+}
+
+void NPC::takeDamage(int damage) {
+    health -= damage;
+    if (health < 0) {
+        health = 0;
+    }
+}
+
+bool NPC::isDefeated() const {
+    return health <= 0;
 }
