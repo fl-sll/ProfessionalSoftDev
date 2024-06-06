@@ -1,11 +1,76 @@
+Help - 10 Pintu: An Indonesian Horror Text-based Game
 
-10 Pintu is a ...
+This game is a horror-themed version of the classic Zork, with a creepy Indonesian village environment. In the Desa Kerinci Graveyard, where the gravestones are crumbling, 
+you awaken and have to make your way through ten "haunted" locations, each of which might be home to ghosts and riddles. Your goal is to investigate various areas, 
+acquire necessary objects, work out the puzzles, and eventually figure out how to get out of the haunting dimension. Watch out for exciting occurrences and 
+ghost encounters that will test your bravery and cleverness at every turn. Here are the commands you can use to play the game:
 
+1. Go
+   - Usage: `go <north/south/east/west>`
+   - Description: Moves your character in the specified direction if an exit is available.
+   - Example: `go north` 
 
-Here are some commands you can use:
-1. go
-2. look <north/west/south/east/n/s/e/w> / inspect <north/west/south/east/n/s/e/w>
-3. take <item> / get <item>
-4. drop <item>
-5. quit
-6. help
+2. Look / Inspect
+   - Usage: `look <direction>` or `inspect <direction>`
+   - Description: Provides a detailed description of what you can see in the specified direction <north/west/south/east/n/s/e/w>. 
+   This can help you discover hidden items or clues.
+   - Example: `look north` or `look n` or `inspect north` or `inspect n `
+
+3. Take / Get
+   - Usage: `take <item>` or `get <item>`
+   - Description: Adds the specified item to your inventory if it is available to be picked up.
+   - Example: `take key` or `get key`
+
+4. Drop
+   - Usage: `drop <item>`
+   - Description: Removes the specified item from your inventory and places it on the ground in your current location.
+   - Example: `drop key`
+
+5. Equip
+   - Usage: `equip <item>`
+   - Description: Equips the specified item from your inventory. This is used for weapons or tools that can aid you in the game.
+   - Example: `equip potion`
+
+6. Unequip
+   - Usage: `unequip <item>`
+   - Description: Removes the specified item from your equipped items but keeps it in your inventory.
+   - Example: `unequip potion`
+
+7. Use
+   - Usage: `use <item>`
+   - Description: Uses the specified item from your inventory. This is typically used for consumables like potions.
+   - Example: `use health potion`
+
+8. Inventory
+   - Usage: `inventory`
+   - Description: Displays a list of items currently in your inventory and those that are equipped.
+   - Example: `inventory`
+
+9. Stats
+   - Usage: `stats`
+   - Description: Shows your character's current stats, including health, strength, and any effects from equipped items.
+   - Example: `stats`
+
+10. Attack
+   - Usage: `attack`
+   - Description: Attacks an enemy if one is present in your current location. Be cautious, as enemies can retaliate.
+   - Example: `attack`
+
+11. Help
+    - Usage: `help`
+    - Description: Displays this help menu.
+    - Example: `help`
+
+12. Quit
+    - Usage: `quit`
+    - Description: Exits the game.
+    - Example: `quit`
+
+---
+
+Additional Information
+
+- Exploration: Use the `look` or `inspect` command frequently to find hidden items or clues that are essential for solving puzzles and progressing in the game.
+- Interactions: Pay attention to the descriptions of each location. They often contain hints for the next steps or items you need to find.
+- Inventory Management: Keep track of the items in your inventory and equip or unequip them as needed to face different challenges.
+- Dynamic Events: Be prepared for unexpected events that can alter the course of the game. Stay netral and adapt your strategy accordingly.
