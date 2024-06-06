@@ -22,7 +22,7 @@ void ZOOrkEngine::run()
 {
     while (!gameOver)
     {
-        std::cout << "> ";
+        std::cout << "Enter command\n> ";
 
         std::string input;
         std::getline(std::cin, input);
@@ -31,34 +31,41 @@ void ZOOrkEngine::run()
         std::string command = words[0];
         std::vector<std::string> arguments(words.begin() + 1, words.end());
 
-        if (command == "go")
+        if (arguments.size() == 0)
         {
-            handleGoCommand(arguments);
-        }
-        else if ((command == "look") || (command == "inspect"))
-        {
-            handleLookCommand(arguments);
-        }
-        else if ((command == "take") || (command == "get"))
-        {
-            handleTakeCommand(arguments);
-        }
-        else if (command == "drop")
-        {
-            handleDropCommand(arguments);
-        }
-        else if (command == "quit")
-        {
-            handleQuitCommand(arguments);
-        }
-        else if (command == "help")
-        {
-            // TODO create a help function to print the list of hints (word hints)
-            handleHelpCommand();
+            emptyArguments(command);
         }
         else
         {
-            std::cout << "I don't understand that command.\n";
+            if (command == "go")
+            {
+                handleGoCommand(arguments);
+            }
+            else if ((command == "look") || (command == "inspect"))
+            {
+                handleLookCommand(arguments);
+            }
+            else if ((command == "take") || (command == "get"))
+            {
+                handleTakeCommand(arguments);
+            }
+            else if (command == "drop")
+            {
+                handleDropCommand(arguments);
+            }
+            else if (command == "quit")
+            {
+                handleQuitCommand(arguments);
+            }
+            else if (command == "help")
+            {
+                // TODO create a help function to print the list of hints (word hints)
+                handleHelpCommand();
+            }
+            else
+            {
+                std::cout << "I don't understand that command.\n";
+            }
         }
     }
 }
@@ -182,6 +189,18 @@ void ZOOrkEngine::handleHelpCommand()
 
     if (help.is_open())
         std::cout << help.rdbuf();
+}
+
+void ZOOrkEngine::emptyArguments(std::string command)
+{
+    if (command == "go")
+    {
+        std::cout << "Go where?" << std::endl;
+    }
+    else
+    {
+        std::cout << "Please finsih your sentence" << std::endl;
+    }
 }
 
 std::vector<std::string> ZOOrkEngine::tokenizeString(const std::string &input)
