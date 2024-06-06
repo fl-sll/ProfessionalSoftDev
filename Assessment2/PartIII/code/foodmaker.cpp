@@ -3,7 +3,7 @@
 #include "./../header/food.h"
 #include "./../header/readJson.h"
 #include <iostream>
-#include <windows.h>
+// #include <windows.h>
 #include <vector>
 
 FoodMaker::FoodMaker(std::vector<Food> food):food(food){}
@@ -11,7 +11,7 @@ FoodMaker::FoodMaker(std::vector<Food> food):food(food){}
 void FoodMaker::makeFood(MenuItem *item) {
     std::cout << "Making food: " << item->getName() << std::endl;
     this->delStock(item->getName());
-    Sleep(1000);
+    // Sleep(1000);
     manager->foodReady();
 };
 

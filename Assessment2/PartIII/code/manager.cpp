@@ -1,5 +1,5 @@
 #include "./../header/manager.h"
-#include <windows.h>
+// #include <windows.h>
 
 #include <iostream>
 
@@ -7,10 +7,10 @@ void Manager::receiveOrder(Patron* patron, Order* order) {
     for (auto item : order->getItems()) {
         if (dynamic_cast<Food*>(item)) {
             foodMaker->makeFood(item);
-            Sleep(1000);
+            // Sleep(1000);
         } else if (dynamic_cast<Coffee*>(item)) {
             coffeeMaker->makeCoffee(item);
-            Sleep(1000);
+            // Sleep(1000);
         }
     }
     host->notifyPatron(patron->getName(), order);
