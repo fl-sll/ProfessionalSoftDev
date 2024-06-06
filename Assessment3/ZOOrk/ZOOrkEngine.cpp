@@ -7,6 +7,8 @@
 #include <string>
 #include <iostream>
 #include <vector>
+#include <fstream>
+// TODO change this to something global
 // #include "../../../../../../msys64/mingw64/include/c++/11.2.0/bits/algorithmfwd.h"
 
 ZOOrkEngine::ZOOrkEngine(std::shared_ptr<Room> start)
@@ -48,6 +50,11 @@ void ZOOrkEngine::run()
         else if (command == "quit")
         {
             handleQuitCommand(arguments);
+        }
+        else if (command == "help")
+        {
+            // TODO create a help function to print the list of hints (word hints)
+            handleHelpCommand();
         }
         else
         {
@@ -118,6 +125,7 @@ void ZOOrkEngine::handleTakeCommand(std::vector<std::string> arguments)
     if (currentRoom->hasItem(itemName))
     {
         Item item = currentRoom->takeItem(itemName);
+        // TODO comment this out since it's dependent to windows
         // Player::instance()->addItem(item);
         // currentRoom -> removeItem(itemName);
         std::cout << "You took the " << itemName << "." << std::endl;
@@ -166,6 +174,14 @@ void ZOOrkEngine::handleQuitCommand(std::vector<std::string> arguments)
     {
         gameOver = true;
     }
+}
+
+void ZOOrkEngine::handleHelpCommand()
+{
+    std::ifstream help("help.txt");
+
+    if (help.is_open())
+        std::cout << help.rdbuf();
 }
 
 std::vector<std::string> ZOOrkEngine::tokenizeString(const std::string &input)

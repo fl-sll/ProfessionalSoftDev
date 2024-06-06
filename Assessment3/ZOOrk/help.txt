@@ -1,0 +1,11 @@
+
+10 Pintu is a ...
+
+
+Here are some commands you can use:
+1. go
+2. look <north/west/south/east/n/s/e/w> / inspect <north/west/south/east/n/s/e/w>
+3. take <item> / get <item>
+4. drop <item>
+5. quit
+6. help
