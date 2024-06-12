@@ -69,16 +69,22 @@ void Room::removePassage(const std::string &direction)
 
 std::shared_ptr<Passage> Room::getPassage(const std::string &direction)
 {
-    auto it = passageMap.find(direction);
-    if (it != passageMap.end())
-    {
-        return it->second;
+    std::string currentDirection;
+
+    while(true) {
+        auto it = passageMap.find(direction);
+        if (it != passageMap.end())
+        {
+            return it->second;
+        }
+        else
+        {
+            std::cout << "It is impossible to go "<< direction << std::endl;
+            return nullptr;
+            // direction = currentDirection;
+        }
     }
-    else
-    {
-        std::cout << "It is impossible to go " << direction << "!\n";
-        return nullptr;
-    }
+    
 }
 
 std::string Room::getDescription() const

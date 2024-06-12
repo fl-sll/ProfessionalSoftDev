@@ -31,12 +31,6 @@ void ZOOrkEngine::run()
         std::string command = words[0];
         std::vector<std::string> arguments(words.begin() + 1, words.end());
 
-        if (arguments.size() == 0)
-        {
-            emptyArguments(command);
-        }
-        else
-        {
             if (command == "go")
             {
                 handleGoCommand(arguments);
@@ -66,12 +60,18 @@ void ZOOrkEngine::run()
             {
                 std::cout << "I don't understand that command.\n";
             }
-        }
+
     }
 }
 
 void ZOOrkEngine::handleGoCommand(std::vector<std::string> arguments)
 {
+    if (arguments.empty())
+    {
+        std::cout << "Go where?" << std::endl;
+        return;
+    }
+    
     std::string direction;
     if (arguments[0] == "n" || arguments[0] == "north")
     {
@@ -104,13 +104,24 @@ void ZOOrkEngine::handleGoCommand(std::vector<std::string> arguments)
 
     Room *currentRoom = player->getCurrentRoom();
     auto passage = currentRoom->getPassage(direction);
-    player->setCurrentRoom(passage->getTo());
-    passage->enter();
+    if (!passage)
+    {
+        std::cout << "Invalid direction. You are still in the same room." << std::endl;
+    }
+    else{
+        player->setCurrentRoom(passage->getTo());
+        passage->enter();
+    }
 }
 
 void ZOOrkEngine::handleLookCommand(std::vector<std::string> arguments)
 {
     // To be implemented
+    if (arguments.empty())
+    {
+        std::cout << "Look at what?" << std::endl;
+        return;
+    }
     Room *currentRoom = player->getCurrentRoom();
     std::cout << currentRoom->getDescription() << std::endl;
 
@@ -189,18 +200,6 @@ void ZOOrkEngine::handleHelpCommand()
 
     if (help.is_open())
         std::cout << help.rdbuf();
-}
-
-void ZOOrkEngine::emptyArguments(std::string command)
-{
-    if (command == "go")
-    {
-        std::cout << "Go where?" << std::endl;
-    }
-    else
-    {
-        std::cout << "Please finsih your sentence" << std::endl;
-    }
 }
 
 std::vector<std::string> ZOOrkEngine::tokenizeString(const std::string &input)
