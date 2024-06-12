@@ -26,42 +26,22 @@ ghost encounters that will test your bravery and cleverness at every turn. Here 
    - Description: Removes the specified item from your inventory and places it on the ground in your current location.
    - Example: `drop key`
 
-5. Equip
-   - Usage: `equip <item>`
-   - Description: Equips the specified item from your inventory. This is used for weapons or tools that can aid you in the game.
-   - Example: `equip potion`
-
-6. Unequip
-   - Usage: `unequip <item>`
-   - Description: Removes the specified item from your equipped items but keeps it in your inventory.
-   - Example: `unequip potion`
-
-7. Use
+5. Use
    - Usage: `use <item>`
    - Description: Uses the specified item from your inventory. This is typically used for consumables like potions.
    - Example: `use health potion`
 
-8. Inventory
+6. Inventory
    - Usage: `inventory`
    - Description: Displays a list of items currently in your inventory and those that are equipped.
    - Example: `inventory`
 
-9. Stats
-   - Usage: `stats`
-   - Description: Shows your character's current stats, including health, strength, and any effects from equipped items.
-   - Example: `stats`
-
-10. Attack
-   - Usage: `attack`
-   - Description: Attacks an enemy if one is present in your current location. Be cautious, as enemies can retaliate.
-   - Example: `attack`
-
-11. Help
+7. Help
     - Usage: `help`
     - Description: Displays this help menu.
     - Example: `help`
 
-12. Quit
+8. Quit
     - Usage: `quit`
     - Description: Exits the game.
     - Example: `quit`
