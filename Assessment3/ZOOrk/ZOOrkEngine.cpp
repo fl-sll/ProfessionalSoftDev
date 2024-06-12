@@ -31,36 +31,39 @@ void ZOOrkEngine::run()
         std::string command = words[0];
         std::vector<std::string> arguments(words.begin() + 1, words.end());
 
-            if (command == "go")
-            {
-                handleGoCommand(arguments);
-            }
-            else if ((command == "look") || (command == "inspect"))
-            {
-                handleLookCommand(arguments);
-            }
-            else if ((command == "take") || (command == "get"))
-            {
-                handleTakeCommand(arguments);
-            }
-            else if (command == "drop")
-            {
-                handleDropCommand(arguments);
-            }
-            else if (command == "quit")
-            {
-                handleQuitCommand(arguments);
-            }
-            else if (command == "help")
-            {
-                // TODO create a help function to print the list of hints (word hints)
-                handleHelpCommand();
-            }
-            else
-            {
-                std::cout << "I don't understand that command.\n";
-            }
-
+        if (command == "go")
+        {
+            handleGoCommand(arguments);
+        }
+        else if ((command == "look") || (command == "inspect"))
+        {
+            handleLookCommand(arguments);
+        }
+        else if ((command == "take") || (command == "get"))
+        {
+            handleTakeCommand(arguments);
+        }
+        else if (command == "drop")
+        {
+            handleDropCommand(arguments);
+        }
+        else if (command == "quit")
+        {
+            handleQuitCommand(arguments);
+        }
+        else if (command == "inventory")
+        {
+            player->showInventory();
+        }
+        else if (command == "help")
+        {
+            // TODO create a help function to print the list of hints (word hints)
+            handleHelpCommand();
+        }
+        else
+        {
+            std::cout << "I don't understand that command.\n";
+        }
     }
 }
 
@@ -71,7 +74,7 @@ void ZOOrkEngine::handleGoCommand(std::vector<std::string> arguments)
         std::cout << "Go where?" << std::endl;
         return;
     }
-    
+
     std::string direction;
     if (arguments[0] == "n" || arguments[0] == "north")
     {
@@ -108,7 +111,8 @@ void ZOOrkEngine::handleGoCommand(std::vector<std::string> arguments)
     {
         std::cout << "Invalid direction. You are still in the same room." << std::endl;
     }
-    else{
+    else
+    {
         player->setCurrentRoom(passage->getTo());
         passage->enter();
     }
