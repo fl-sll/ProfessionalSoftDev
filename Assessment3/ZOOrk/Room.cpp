@@ -14,6 +14,8 @@
 
 Room::Room(const std::string &n, const std::string &d) : Location(n, d)
 {
+    description = d;
+    name = n;
     enterCommand = std::make_shared<RoomDefaultEnterCommand>(this);
 }
 
@@ -86,17 +88,11 @@ std::shared_ptr<Passage> Room::getPassage(const std::string &direction)
     }
     
 }
+std::string Room::getName() const {
+    return name;
+}
 
 std::string Room::getDescription() const
 {
-    std::string roomDescription = description;
-    if (!items.empty())
-    {
-        roomDescription += "\n\nItems in the room:\n";
-        for (const auto &item : items)
-        {
-            roomDescription += "- " + item.getDescription() + "\n";
-        }
-    }
-    return roomDescription;
+    return description;
 }

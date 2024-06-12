@@ -121,12 +121,13 @@ void ZOOrkEngine::handleGoCommand(std::vector<std::string> arguments)
 void ZOOrkEngine::handleLookCommand(std::vector<std::string> arguments)
 {
     // To be implemented
-    if (arguments.empty())
-    {
-        std::cout << "Look at what?" << std::endl;
-        return;
-    }
+    // if (arguments.empty())
+    // {
+    //     std::cout << "Look at what?" << std::endl;
+    //     return;
+    // }
     Room *currentRoom = player->getCurrentRoom();
+    std::cout << "You are currently in " << currentRoom->getName() << std::endl;
     std::cout << currentRoom->getDescription() << std::endl;
 
     // std::cout << "This functionality is not yet enabled.\n";

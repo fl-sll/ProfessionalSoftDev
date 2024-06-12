@@ -32,7 +32,7 @@ public:
     void addPassage(const std::string &, std::shared_ptr<Passage>);
     void removePassage(const std::string &);
     std::shared_ptr<Passage> getPassage(const std::string &);
-
+    std::string getName() const;
     std::string getDescription() const;
 
 protected:
