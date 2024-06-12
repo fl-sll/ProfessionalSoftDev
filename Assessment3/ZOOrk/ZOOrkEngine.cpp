@@ -196,10 +196,17 @@ void ZOOrkEngine::handleQuitCommand(std::vector<std::string> arguments)
 
 void ZOOrkEngine::handleHelpCommand()
 {
-    std::ifstream help("help.txt");
+    std::ifstream help("../help.txt");
 
     if (help.is_open())
+    {
         std::cout << help.rdbuf();
+        help.close();
+    }
+    else
+    {
+        std::cerr << "Error: could not open file" << std::endl;
+    }
 }
 
 std::vector<std::string> ZOOrkEngine::tokenizeString(const std::string &input)
