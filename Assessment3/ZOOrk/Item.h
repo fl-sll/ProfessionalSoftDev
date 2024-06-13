@@ -14,13 +14,8 @@ public:
     virtual void use();
     std::string getName() const;
     std::string getDescription() const;
-    
-    
 
     void setUseCommand(std::shared_ptr<Command>);
-
-    std::string getName();
-    std::string getDescription();
 
 protected:
     std::shared_ptr<Command> useCommand;

@@ -148,14 +148,8 @@ void ZOOrkEngine::handleTakeCommand(std::vector<std::string> arguments)
     std::cout << itemName << std::endl;
     if (currentRoom->hasItem(itemName))
     {
-<<<<<<< HEAD
         std::shared_ptr<Item> item = currentRoom->takeItem(itemName);
         Player::instance()->addItem(item);
-=======
-        Item item = currentRoom->takeItem(itemName);
-        // TODO comment this out since it's dependent to windows
-        player->addItem(item);
->>>>>>> master
         // currentRoom -> removeItem(itemName);
         std::cout << "You took the " << itemName << "." << std::endl;
     }
