@@ -143,13 +143,13 @@ void ZOOrkEngine::handleTakeCommand(std::vector<std::string> arguments)
     }
 
     std::string itemName = arguments[0]; // Assuming single word item names for simplicity
-    Room *currentRoom = Player::instance()->getCurrentRoom();
-
+    Room *currentRoom = player->getCurrentRoom();
+    std::cout << itemName << std::endl;
     if (currentRoom->hasItem(itemName))
     {
         Item item = currentRoom->takeItem(itemName);
         // TODO comment this out since it's dependent to windows
-        // Player::instance()->addItem(item);
+        player->addItem(item);
         // currentRoom -> removeItem(itemName);
         std::cout << "You took the " << itemName << "." << std::endl;
     }

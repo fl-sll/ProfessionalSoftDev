@@ -3,11 +3,16 @@
 #include "Player.h"
 #include "Room.h"
 #include "ZOOrkEngine.h"
+#include "Item.h"
 
 
 int main() {
     std::shared_ptr<Room> start = std::make_shared<Room>("Desa Kerinci Graveyard",
                                 "You awaken amidst crumbling gravestones shrouded in mist. The air hangs heavy with the scent of incense and damp earth.\nAn unsettling silence is broken only by the chirping of crickets. An ornately carved stone gate, weathered with age, stands as the only exit.\n");
+
+    
+    Item key = Item("key", "to open doors");
+    start->addItem(key);
 
     std::shared_ptr<Room> abandoned_school = std::make_shared<Room>("Abandoned School",
                                 "Vines crawl through the shattered windows of a deserted school building. Inside, desks are overturned, papers scatter\nacross the dusty floor, and a faint melody drifts from a broken record player. Cobwebs drape a bulletin board adorned with faded school photos - some faces seem to follow you with their gaze.\n");
