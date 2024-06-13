@@ -129,6 +129,7 @@ void ZOOrkEngine::handleLookCommand(std::vector<std::string> arguments)
     Room *currentRoom = player->getCurrentRoom();
     std::cout << "You are currently in " << currentRoom->getName() << std::endl;
     std::cout << currentRoom->getDescription() << std::endl;
+    currentRoom->getItem();
 
     // std::cout << "This functionality is not yet enabled.\n";
 }
@@ -147,9 +148,8 @@ void ZOOrkEngine::handleTakeCommand(std::vector<std::string> arguments)
 
     if (currentRoom->hasItem(itemName))
     {
-        Item item = currentRoom->takeItem(itemName);
-        // TODO comment this out since it's dependent to windows
-        // Player::instance()->addItem(item);
+        std::shared_ptr<Item> item = currentRoom->takeItem(itemName);
+        Player::instance()->addItem(item);
         // currentRoom -> removeItem(itemName);
         std::cout << "You took the " << itemName << "." << std::endl;
     }
@@ -174,8 +174,8 @@ void ZOOrkEngine::handleDropCommand(std::vector<std::string> arguments)
 
     if (Player::instance()->hasItem(itemName))
     {
-        Item item = currentRoom->takeItem(itemName); // Use takeItem to get the item object
-        Player::instance()->removeItem(itemName);
+        std::shared_ptr<Item> item = player->takeItem(itemName); // Use takeItem to get the item object
+        // Player::instance()->takeItem(itemName);
         currentRoom->addItem(item);
         std::cout << "You dropped the " << itemName << "." << std::endl;
     }

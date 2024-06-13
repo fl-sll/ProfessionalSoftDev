@@ -21,15 +21,15 @@ Room::Room(const std::string &n, const std::string &d) : Location(n, d)
 
 Room::Room(const std::string &n, const std::string &d, std::shared_ptr<Command> c) : Location(n, d, std::move(c)) {}
 
-void Room::addItem(const Item &item)
+void Room::addItem(std::shared_ptr<Item> item)
 {
     items.push_back(item);
 }
 
 void Room::removeItem(const std::string &itemName)
 {
-    auto it = std::remove_if(items.begin(), items.end(), [&](const Item &item)
-                             { return item.getName() == itemName; });
+    auto it = std::remove_if(items.begin(), items.end(), [&](const std::shared_ptr<Item> &item)
+                             { return item->getName() == itemName; });
     if (it != items.end())
     {
         items.erase(it);
@@ -38,17 +38,17 @@ void Room::removeItem(const std::string &itemName)
 
 bool Room::hasItem(const std::string &itemName) const
 {
-    return std::any_of(items.begin(), items.end(), [&](const Item &item)
-                       { return item.getName() == itemName; });
+    return std::any_of(items.begin(), items.end(), [&](const std::shared_ptr<Item> &item)
+                       { return item->getName() == itemName; });
 }
 
-Item Room::takeItem(const std::string &itemName)
+std::shared_ptr<Item> Room::takeItem(const std::string& itemName)
 {
-    auto it = std::find_if(items.begin(), items.end(), [&](const Item &item)
-                           { return item.getName() == itemName; });
+    auto it = std::find_if(items.begin(), items.end(), [&](const std::shared_ptr<Item> &item)
+                           { return item->getName() == itemName; });
     if (it != items.end())
     {
-        Item item = *it;
+        std::shared_ptr<Item> item = *it;
         items.erase(it);
         return item;
     }
@@ -95,4 +95,12 @@ std::string Room::getName() const {
 std::string Room::getDescription() const
 {
     return description;
+}
+
+void Room::getItem() const
+{
+    if(!items.empty()){
+    for(auto item : items){
+        std::cout << "There's a " << item->getName() << std::endl;
+    }}
 }

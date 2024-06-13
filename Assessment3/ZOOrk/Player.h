@@ -27,6 +27,7 @@ public:
     void removeItem(const std::string& itemName);
     bool hasItem(const std::string& itemName) const;
     void showInventory() const;
+    std::shared_ptr<Item> takeItem(const std::string& itemName);
 
     void useWeapon(std::shared_ptr<Item> weapon, NPC& npc); // Forward declaration of NPC class
 

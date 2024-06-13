@@ -32,6 +32,19 @@ void Player::removeItem(const std::string& itemName) {
     }
 }
 
+std::shared_ptr<Item> Player::takeItem(const std::string& itemName)
+{
+    auto it = std::find_if(inventory.begin(), inventory.end(), [&](const std::shared_ptr<Item> &item)
+                           { return item->getName() == itemName; });
+    if (it != inventory.end())
+    {
+        std::shared_ptr<Item> item = *it;
+        inventory.erase(it);
+        return item;
+    }
+    throw std::runtime_error("Item not found");
+}
+
 
 bool Player::hasItem(const std::string& itemName) const {
     struct ItemNameMatcher {

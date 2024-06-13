@@ -12,6 +12,10 @@ public:
     Item(const std::string &, const std::string &, std::shared_ptr<Command>);
 
     virtual void use();
+    std::string getName() const;
+    std::string getDescription() const;
+    
+    
 
     void setUseCommand(std::shared_ptr<Command>);
 

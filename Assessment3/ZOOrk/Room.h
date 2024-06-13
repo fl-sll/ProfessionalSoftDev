@@ -19,10 +19,10 @@ public:
     Room(const std::string &, const std::string &);
     Room(const std::string &, const std::string &, std::shared_ptr<Command>);
 
-    void addItem(const Item& item);
+    void addItem(std::shared_ptr<Item> item);
     void removeItem(const std::string& itemName);
     bool hasItem(const std::string& itemName) const;
-    Item takeItem(const std::string& itemName);
+    std::shared_ptr<Item> takeItem(const std::string& itemName);
 
 
 //    void addCharacter(Character*);
@@ -34,6 +34,7 @@ public:
     std::shared_ptr<Passage> getPassage(const std::string &);
     std::string getName() const;
     std::string getDescription() const;
+    void getItem() const;
 
 protected:
 //    std::vector<Item*> items;
@@ -43,7 +44,7 @@ protected:
 private:
     std::string name;
     std::string description;
-    std::vector<Item> items;
+    std::vector<std::shared_ptr<Item> > items;
 };
 
 
