@@ -71,31 +71,31 @@ void Player::showInventory() const {
     }
 }
 
-void Player::useWeapon(std::shared_ptr<Item> weapon, NPC& npc) {
-    auto weaponPtr = std::dynamic_pointer_cast<Weapon>(weapon);
-    if (weaponPtr) {
-        std::cout << "You use " << weapon->getName() << " to attack " << npc.getName() << "." << std::endl;
-        npc.takeDamage(weaponPtr->getDamage());
-        if (npc.isDefeated()) {
-            std::cout << npc.getName() << " is defeated!" << std::endl;
-        } else {
-            std::cout << npc.getName() << " has " << npc.getHealth() << " health remaining." << std::endl;
-        }
-    } else {
-        std::cout << "This item is not a weapon." << std::endl;
-    }
-}
+// void Player::useWeapon(std::shared_ptr<Item> weapon, NPC& npc) {
+//     auto weaponPtr = std::dynamic_pointer_cast<Weapon>(weapon);
+//     if (weaponPtr) {
+//         std::cout << "You use " << weapon->getName() << " to attack " << npc.getName() << "." << std::endl;
+//         npc.takeDamage(weaponPtr->getDamage());
+//         if (npc.isDefeated()) {
+//             std::cout << npc.getName() << " is defeated!" << std::endl;
+//         } else {
+//             std::cout << npc.getName() << " has " << npc.getHealth() << " health remaining." << std::endl;
+//         }
+//     } else {
+//         std::cout << "This item is not a weapon." << std::endl;
+//     }
+// }
 
-void Player::usePotion(std::shared_ptr<Item> potion) {
-    auto potionPtr = std::dynamic_pointer_cast<Potion>(potion);
-    if (potionPtr) {
-        std::cout << "You use " << potion->getName() << " and recover " << potionPtr->getHealingAmount() << " health." << std::endl;
-        heal(potionPtr->getHealingAmount());
-        removeItem(potion->getName());
-    } else {
-        std::cout << "This item is not a potion." << std::endl;
-    }
-}
+// void Player::usePotion(std::shared_ptr<Item> potion) {
+//     auto potionPtr = std::dynamic_pointer_cast<Potion>(potion);
+//     if (potionPtr) {
+//         std::cout << "You use " << potion->getName() << " and recover " << potionPtr->getHealingAmount() << " health." << std::endl;
+//         heal(potionPtr->getHealingAmount());
+//         removeItem(potion->getName());
+//     } else {
+//         std::cout << "This item is not a potion." << std::endl;
+//     }
+// }
 
 
 

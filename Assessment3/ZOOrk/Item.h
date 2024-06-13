@@ -19,6 +19,9 @@ public:
 
     void setUseCommand(std::shared_ptr<Command>);
 
+    std::string getName();
+    std::string getDescription();
+
 protected:
     std::shared_ptr<Command> useCommand;
 };
@@ -28,31 +31,31 @@ public:
     Object(const std::string &name, const std::string &description) : Item(name, description) {}
 };
 
-class Weapon : public Item {
-public:
-    Weapon(const std::string &name, const std::string &description, int damage)
-        : Item(name, description), damage(damage) {}
+// class Weapon : public Item {
+// public:
+//     Weapon(const std::string &name, const std::string &description, int damage)
+//         : Item(name, description), damage(damage) {}
 
-    int getDamage() const {
-        return damage;
-    }
+//     int getDamage() const {
+//         return damage;
+//     }
 
-private:
-    int damage;
-};
+// private:
+//     int damage;
+// };
 
-class Potion : public Item {
-public:
-    Potion(const std::string &name, const std::string &description, int healingAmount)
-        : Item(name, description), healingAmount(healingAmount) {}
+// class Potion : public Item {
+// public:
+//     Potion(const std::string &name, const std::string &description, int healingAmount)
+//         : Item(name, description), healingAmount(healingAmount) {}
 
-    int getHealingAmount() const {
-        return healingAmount;
-    }
+//     int getHealingAmount() const {
+//         return healingAmount;
+//     }
 
-private:
-    int healingAmount;
-};
+// private:
+//     int healingAmount;
+// };
 
 #endif //ZOORK_ITEM_H
 
