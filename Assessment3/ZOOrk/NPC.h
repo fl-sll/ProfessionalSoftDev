@@ -11,26 +11,28 @@ class NPC : public Character {
 public:
     // enum class NPCType { FRIENDLY, HOSTILE };
 
-    NPC(const std::string& name, const std::string& description, const std::string& dialogue);
+    NPC(const std::string& name, const std::string& description, const std::string& dialogue, const std::string& defeatItem);
     ~NPC();
 
+    std::string getName() const;
+    std::string getDescription() const;
     std::string getDialogue() const;
     void setDialogue(const std::string& dialogue);
 
-    // NPCType getType() const;
-    // void setType(NPCType type);
 
     void interact(Player& player);
-    void takeDamage(int damage);
     bool isDefeated() const;
+
 
 private:
     std::string dialogue;
+    std::string defeatItem;
+    bool defeated;
     // NPCType type;
-    int attackPower;
+    // int attackPower;
 
-    void friendlyInteract(Player& player);
-    void hostileInteract(Player& player);
+    // void friendlyInteract(Player& player);
+    // void hostileInteract(Player& player);
 };
 
 #endif //ZOORK_NPC_H

@@ -26,6 +26,8 @@ public:
 
     Room* getTo() const;
 
+    
+
 protected:
     static std::string oppositeDirection(const std::string &);
 

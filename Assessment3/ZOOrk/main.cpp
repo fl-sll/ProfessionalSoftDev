@@ -7,6 +7,7 @@
 
 int main()
 {
+// ROOMS
     std::shared_ptr<Room> start = std::make_shared<Room>("Desa Kerinci Graveyard", 
                                                                 "You awaken amidst crumbling gravestones shrouded in mist. The air hangs heavy with the scent of incense and damp earth.\nAn unsettling silence is broken only by the chirping of crickets. An ornately carved stone gate, weathered with age, stands as the only exit.\n");
 
@@ -38,6 +39,8 @@ int main()
     std::shared_ptr<Room> hidden_village = std::make_shared<Room>("Hidden Village",
                                                                   "After navigating a treacherous jungle path, you emerge into a clearing revealing a hidden village. Villagers with painted\n faces go about their daily routines, seemingly oblivious to your presence. An unsettling calm hangs in the air, broken only by the rhythmic beating of drums in the distance.\n");
 
+
+// PASSAGES
     Passage::createBasicPassage(start.get(), abandoned_school.get(), "east", true);
     Passage::createBasicPassage(start.get(), grandma_house.get(), "south", true);
     Passage::createBasicPassage(abandoned_school.get(), jungle_river.get(), "east", true);
@@ -54,38 +57,59 @@ int main()
     Passage::createBasicPassage(hidden_bunker.get(), hidden_village.get(), "south", true);
 
 // ITEMS
-    std::shared_ptr<Item> daun = std::make_shared<Item>("daun_kelor", "to open doors");
+    std::shared_ptr<Item> daun = std::make_shared<Item>("daun_kelor", "Daun kelor, or moringa leaves, are believed to have protective properties against evil spirits. These leaves can dispel curses and provide a shield against ghostly entities, especially for the one that jump and haunt you in every step.");
     start->addItem(daun);
 
-    std::shared_ptr<Item> garam = std::make_shared<Item>("garam", "to open doors");
+    std::shared_ptr<Item> garam = std::make_shared<Item>("garam", "It is widely regarded in various cultures as a purifying substance. It is known to repel mischievous spirits and is used to cleanse spaces of malevolent entities. Those entities are small and like to steal from humans.");
     grandma_house->addItem(garam);
 
-    std::shared_ptr<Item> holy_water = std::make_shared<Item>("air_suci", "to open doors");
+    std::shared_ptr<Item> holy_water = std::make_shared<Item>("air_suci", "In case you are wondering, this item proves to be  a valuable asset in going against an evil Giant Spirit which you might encounter as you go around the map.");
     warung_angker->addItem(holy_water);
 
-    std::shared_ptr<Item> bambu = std::make_shared<Item>("bambu_kuning", "to open doors");
+    std::shared_ptr<Item> bambu = std::make_shared<Item>("bambu_kuning", " An exotic plant found in the depths of the Jungle River. Remember the unseen spirits lurking amongst the ten doors? You may want to use this sacred plant when you encounter them.");
     jungle_river->addItem(bambu);
 
-    std::shared_ptr<Item> keris = std::make_shared<Item>("keris", "to open doors");
+    std::shared_ptr<Item> keris = std::make_shared<Item>("keris", "A traditional Javanese hand-crafted weapon that has been passed down across generations. This weapon symbolizes hope and courage to those who wield it. A temple guardian might be lurking anywhere waiting to strike, make sure to carry this item to battle its arsenal of mystic artillery.");
     hidden_village->addItem(keris);
 
 // GHOSTS
-    std::shared_ptr<NPC> pocong = std::make_shared<NPC>("pocong", "a scary character", "oooo i'm scary");
+    std::shared_ptr<NPC> pocong = std::make_shared<NPC>("pocong", 
+    "Pocong is a ghost in Indonesian folklore known for its burial shroud. It hops around and is said to haunt the living.", 
+    "Foolish mortal, you dare to disturb my restless slumber? I am cursed to wander in this shroud. Beware, for I shall haunt your every step...", 
+    "daun_kelor");
     abandoned_school->addCharacter(pocong);
 
-    std::shared_ptr<NPC> tuyul = std::make_shared<NPC>("tuyul", "a scary character", "oooo i'm scary");
+    std::shared_ptr<NPC> tuyul = std::make_shared<NPC>("tuyul", 
+    "Tuyul is a small child-like spirit in Indonesian mythology, often depicted as a mischievous or malevolent creature used by humans to steal.", 
+    "Hehe, a new face! I'm a master of mischief. Have you lost something? Perhaps I can help... for a price, but not with that grandma's stuff!", 
+    "garam");
     cyber_cafe->addCharacter(tuyul);
 
-    std::shared_ptr<NPC> genderuwo = std::make_shared<NPC>("genderuwo", "a scary character", "oooo i'm scary");
+    std::shared_ptr<NPC> genderuwo = std::make_shared<NPC>("genderuwo", 
+    "Genderuwo is a Javanese mythical creature, a large, hairy humanoid that is known to terrorize people.", 
+    "Human, you dare tread my domain? I am Genderuwo, those who dare to stand on my feet and bring that Holy Substance are assured to not have peace.", 
+    "air_suci");
     hidden_bunker->addCharacter(genderuwo);
 
-    std::shared_ptr<NPC> siluman = std::make_shared<NPC>("siluman", "a scary character", "oooo i'm scary");
+    std::shared_ptr<NPC> siluman = std::make_shared<NPC>("siluman", 
+    "Siluman refers to shapeshifting spirits or creatures in Indonesian folklore. This creature often looks deceiving.", 
+    "Ah, a visitor. Look to the left, right, front, and back. I am sure that you won't know where I'll appear next. But that sacred plant calls upon my presence. Can you trust what you see?",
+    "bambu_kuning");
     shadow_puppet_theater->addCharacter(siluman);
 
-    std::shared_ptr<NPC> hantu_penjaga = std::make_shared<NPC>("hantu_penjaga_candi", "a scary character", "oooo i'm scary");
+    std::shared_ptr<NPC> hantu_penjaga = std::make_shared<NPC>("hantu_penjaga_candi", 
+    "Hantu Penjaga Candi, or Temple Guardian Ghost, is believed to be a spirit that guards ancient temples, protecting sacred places from intruders.", 
+    "Halt! I am the protector of these sacred grounds. State your intentions, intruder, only if you possess the ultimate weapon shall you dare to face me!!",
+    "keris");
     candi->addCharacter(hantu_penjaga);
 
     ZOOrkEngine zoork(start);
+
+    zoork.addNPC(pocong);
+    zoork.addNPC(tuyul);
+    zoork.addNPC(genderuwo);
+    zoork.addNPC(siluman);
+    zoork.addNPC(hantu_penjaga);
 
     zoork.run();
 

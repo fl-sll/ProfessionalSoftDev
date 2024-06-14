@@ -1,0 +1,92 @@
+[
+{
+  "directory": "C:/Users/Edward Alvin/Semester 6/Software Development/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe   -g -std=gnu++20 -o CMakeFiles\\ZOOrk.dir\\main.cpp.obj -c \"C:\\Users\\Edward Alvin\\Semester 6\\Software Development\\Assessment3\\ZOOrk\\main.cpp\"",
+  "file": "C:/Users/Edward Alvin/Semester 6/Software Development/Assessment3/ZOOrk/main.cpp",
+  "output": "CMakeFiles/ZOOrk.dir/main.cpp.obj"
+},
+{
+  "directory": "C:/Users/Edward Alvin/Semester 6/Software Development/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe   -g -std=gnu++20 -o CMakeFiles\\ZOOrk.dir\\Item.cpp.obj -c \"C:\\Users\\Edward Alvin\\Semester 6\\Software Development\\Assessment3\\ZOOrk\\Item.cpp\"",
+  "file": "C:/Users/Edward Alvin/Semester 6/Software Development/Assessment3/ZOOrk/Item.cpp",
+  "output": "CMakeFiles/ZOOrk.dir/Item.cpp.obj"
+},
+{
+  "directory": "C:/Users/Edward Alvin/Semester 6/Software Development/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe   -g -std=gnu++20 -o CMakeFiles\\ZOOrk.dir\\Character.cpp.obj -c \"C:\\Users\\Edward Alvin\\Semester 6\\Software Development\\Assessment3\\ZOOrk\\Character.cpp\"",
+  "file": "C:/Users/Edward Alvin/Semester 6/Software Development/Assessment3/ZOOrk/Character.cpp",
+  "output": "CMakeFiles/ZOOrk.dir/Character.cpp.obj"
+},
+{
+  "directory": "C:/Users/Edward Alvin/Semester 6/Software Development/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe   -g -std=gnu++20 -o CMakeFiles\\ZOOrk.dir\\Location.cpp.obj -c \"C:\\Users\\Edward Alvin\\Semester 6\\Software Development\\Assessment3\\ZOOrk\\Location.cpp\"",
+  "file": "C:/Users/Edward Alvin/Semester 6/Software Development/Assessment3/ZOOrk/Location.cpp",
+  "output": "CMakeFiles/ZOOrk.dir/Location.cpp.obj"
+},
+{
+  "directory": "C:/Users/Edward Alvin/Semester 6/Software Development/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe   -g -std=gnu++20 -o CMakeFiles\\ZOOrk.dir\\GameObject.cpp.obj -c \"C:\\Users\\Edward Alvin\\Semester 6\\Software Development\\Assessment3\\ZOOrk\\GameObject.cpp\"",
+  "file": "C:/Users/Edward Alvin/Semester 6/Software Development/Assessment3/ZOOrk/GameObject.cpp",
+  "output": "CMakeFiles/ZOOrk.dir/GameObject.cpp.obj"
+},
+{
+  "directory": "C:/Users/Edward Alvin/Semester 6/Software Development/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe   -g -std=gnu++20 -o CMakeFiles\\ZOOrk.dir\\Room.cpp.obj -c \"C:\\Users\\Edward Alvin\\Semester 6\\Software Development\\Assessment3\\ZOOrk\\Room.cpp\"",
+  "file": "C:/Users/Edward Alvin/Semester 6/Software Development/Assessment3/ZOOrk/Room.cpp",
+  "output": "CMakeFiles/ZOOrk.dir/Room.cpp.obj"
+},
+{
+  "directory": "C:/Users/Edward Alvin/Semester 6/Software Development/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe   -g -std=gnu++20 -o CMakeFiles\\ZOOrk.dir\\Passage.cpp.obj -c \"C:\\Users\\Edward Alvin\\Semester 6\\Software Development\\Assessment3\\ZOOrk\\Passage.cpp\"",
+  "file": "C:/Users/Edward Alvin/Semester 6/Software Development/Assessment3/ZOOrk/Passage.cpp",
+  "output": "CMakeFiles/ZOOrk.dir/Passage.cpp.obj"
+},
+{
+  "directory": "C:/Users/Edward Alvin/Semester 6/Software Development/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe   -g -std=gnu++20 -o CMakeFiles\\ZOOrk.dir\\NullRoom.cpp.obj -c \"C:\\Users\\Edward Alvin\\Semester 6\\Software Development\\Assessment3\\ZOOrk\\NullRoom.cpp\"",
+  "file": "C:/Users/Edward Alvin/Semester 6/Software Development/Assessment3/ZOOrk/NullRoom.cpp",
+  "output": "CMakeFiles/ZOOrk.dir/NullRoom.cpp.obj"
+},
+{
+  "directory": "C:/Users/Edward Alvin/Semester 6/Software Development/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe   -g -std=gnu++20 -o CMakeFiles\\ZOOrk.dir\\NullCommand.cpp.obj -c \"C:\\Users\\Edward Alvin\\Semester 6\\Software Development\\Assessment3\\ZOOrk\\NullCommand.cpp\"",
+  "file": "C:/Users/Edward Alvin/Semester 6/Software Development/Assessment3/ZOOrk/NullCommand.cpp",
+  "output": "CMakeFiles/ZOOrk.dir/NullCommand.cpp.obj"
+},
+{
+  "directory": "C:/Users/Edward Alvin/Semester 6/Software Development/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe   -g -std=gnu++20 -o CMakeFiles\\ZOOrk.dir\\Player.cpp.obj -c \"C:\\Users\\Edward Alvin\\Semester 6\\Software Development\\Assessment3\\ZOOrk\\Player.cpp\"",
+  "file": "C:/Users/Edward Alvin/Semester 6/Software Development/Assessment3/ZOOrk/Player.cpp",
+  "output": "CMakeFiles/ZOOrk.dir/Player.cpp.obj"
+},
+{
+  "directory": "C:/Users/Edward Alvin/Semester 6/Software Development/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe   -g -std=gnu++20 -o CMakeFiles\\ZOOrk.dir\\RoomDefaultEnterCommand.cpp.obj -c \"C:\\Users\\Edward Alvin\\Semester 6\\Software Development\\Assessment3\\ZOOrk\\RoomDefaultEnterCommand.cpp\"",
+  "file": "C:/Users/Edward Alvin/Semester 6/Software Development/Assessment3/ZOOrk/RoomDefaultEnterCommand.cpp",
+  "output": "CMakeFiles/ZOOrk.dir/RoomDefaultEnterCommand.cpp.obj"
+},
+{
+  "directory": "C:/Users/Edward Alvin/Semester 6/Software Development/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe   -g -std=gnu++20 -o CMakeFiles\\ZOOrk.dir\\ZOOrkEngine.cpp.obj -c \"C:\\Users\\Edward Alvin\\Semester 6\\Software Development\\Assessment3\\ZOOrk\\ZOOrkEngine.cpp\"",
+  "file": "C:/Users/Edward Alvin/Semester 6/Software Development/Assessment3/ZOOrk/ZOOrkEngine.cpp",
+  "output": "CMakeFiles/ZOOrk.dir/ZOOrkEngine.cpp.obj"
+},
+{
+  "directory": "C:/Users/Edward Alvin/Semester 6/Software Development/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe   -g -std=gnu++20 -o CMakeFiles\\ZOOrk.dir\\PassageDefaultEnterCommand.cpp.obj -c \"C:\\Users\\Edward Alvin\\Semester 6\\Software Development\\Assessment3\\ZOOrk\\PassageDefaultEnterCommand.cpp\"",
+  "file": "C:/Users/Edward Alvin/Semester 6/Software Development/Assessment3/ZOOrk/PassageDefaultEnterCommand.cpp",
+  "output": "CMakeFiles/ZOOrk.dir/PassageDefaultEnterCommand.cpp.obj"
+},
+{
+  "directory": "C:/Users/Edward Alvin/Semester 6/Software Development/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe   -g -std=gnu++20 -o CMakeFiles\\ZOOrk.dir\\NullPassage.cpp.obj -c \"C:\\Users\\Edward Alvin\\Semester 6\\Software Development\\Assessment3\\ZOOrk\\NullPassage.cpp\"",
+  "file": "C:/Users/Edward Alvin/Semester 6/Software Development/Assessment3/ZOOrk/NullPassage.cpp",
+  "output": "CMakeFiles/ZOOrk.dir/NullPassage.cpp.obj"
+},
+{
+  "directory": "C:/Users/Edward Alvin/Semester 6/Software Development/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe   -g -std=gnu++20 -o CMakeFiles\\ZOOrk.dir\\NPC.cpp.obj -c \"C:\\Users\\Edward Alvin\\Semester 6\\Software Development\\Assessment3\\ZOOrk\\NPC.cpp\"",
+  "file": "C:/Users/Edward Alvin/Semester 6/Software Development/Assessment3/ZOOrk/NPC.cpp",
+  "output": "CMakeFiles/ZOOrk.dir/NPC.cpp.obj"
+}
+]

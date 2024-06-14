@@ -31,6 +31,8 @@ public:
     void addCharacter(std::shared_ptr<NPC> npc);
     void removeCharacter(const std::string &npc);
     void getCharacter() const;
+    bool hasCharacter(const std::string &npcName) const;
+    std::shared_ptr<NPC> getNPC(const std::string &npcName);
 
     void addPassage(const std::string &, std::shared_ptr<Passage>);
     void removePassage(const std::string &);

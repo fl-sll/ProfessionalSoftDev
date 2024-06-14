@@ -128,7 +128,26 @@ void Room::getCharacter() const
     {
         for (auto character : characters)
         {
-            std::cout << "You encounter " << character->getName() << std::endl;
+            if(!character->isDefeated()){
+                std::cout << "You encounter " << character->getName() << std::endl;
+            }
         }
     }
+};
+
+bool Room::hasCharacter(const std::string &npcName) const{
+    return std::any_of(characters.begin(), characters.end(), [&](const std::shared_ptr<NPC> &npc)
+                       { return npc->getName() == npcName; });
+};
+std::shared_ptr<NPC> Room::getNPC(const std::string &npcName){
+    auto it = std::find_if(characters.begin(), characters.end(), [&](const std::shared_ptr<NPC> &character)
+                           { return character->getName() == npcName; });
+    
+    if (it != characters.end())
+    {
+        std::shared_ptr<NPC> npc = *it;
+        // items.erase(it);
+        return npc;
+    }
+    throw std::runtime_error("Ghost not found");
 };
