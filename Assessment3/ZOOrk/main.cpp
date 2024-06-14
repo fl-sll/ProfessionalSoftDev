@@ -7,21 +7,12 @@
 
 int main()
 {
-    std::shared_ptr<Room>
-            start = std::make_shared<Room>("Desa Kerinci Graveyard",
-                                           "You awaken amidst crumbling gravestones shrouded in mist. The air hangs heavy with the scent of incense and damp earth.\nAn unsettling silence is broken only by the chirping of crickets. An ornately carved stone gate, weathered with age, stands as the only exit.\n");
+    std::shared_ptr<Room> start = std::make_shared<Room>("Desa Kerinci Graveyard", 
+                                                                "You awaken amidst crumbling gravestones shrouded in mist. The air hangs heavy with the scent of incense and damp earth.\nAn unsettling silence is broken only by the chirping of crickets. An ornately carved stone gate, weathered with age, stands as the only exit.\n");
 
-    std::shared_ptr<Item> key = std::make_shared<Item>("key", "to open doors");
-    start->addItem(key);
-
-    std::shared_ptr<Item> key2 = std::make_shared<Item>("key2", "to open doors");
-    start->addItem(key2);
-
-    std::shared_ptr<NPC> setan = std::make_shared<NPC> ("setan", "a scary character", "oooo i'm scary");
-    start->addCharacter(setan);
 
     std::shared_ptr<Room> abandoned_school = std::make_shared<Room>("Abandoned School",
-                                                                    "Vines crawl through the shattered windows of a deserted school building. Inside, desks are overturned, papers scatter\nacross the dusty floor, and a faint melody drifts from a broken record player. Cobwebs drape a bulletin board adorned with faded school photos - some faces seem to follow you with their gaze.\n");
+                                                                "Vines crawl through the shattered windows of a deserted school building. Inside, desks are overturned, papers scatter\nacross the dusty floor, and a faint melody drifts from a broken record player. Cobwebs drape a bulletin board adorned with faded school photos - some faces seem to follow you with their gaze.\n");
 
     std::shared_ptr<Room> jungle_river = std::make_shared<Room>("Jungle River",
                                                                 "Lush foliage and tangled vines overhang a murky river. The air is thick with the sounds of insects and the occasional\nscreech of unseen birds. A rickety wooden bridge spans the river, leading to a dense, unexplored jungle on the other side.\n");
@@ -61,6 +52,38 @@ int main()
     Passage::createBasicPassage(cyber_cafe.get(), candi.get(), "west", true);
     Passage::createBasicPassage(hidden_bunker.get(), warung_angker.get(), "west", true);
     Passage::createBasicPassage(hidden_bunker.get(), hidden_village.get(), "south", true);
+
+// ITEMS
+    std::shared_ptr<Item> daun = std::make_shared<Item>("daun_kelor", "to open doors");
+    start->addItem(daun);
+
+    std::shared_ptr<Item> garam = std::make_shared<Item>("garam", "to open doors");
+    grandma_house->addItem(garam);
+
+    std::shared_ptr<Item> holy_water = std::make_shared<Item>("air_suci", "to open doors");
+    warung_angker->addItem(holy_water);
+
+    std::shared_ptr<Item> bambu = std::make_shared<Item>("bambu_kuning", "to open doors");
+    jungle_river->addItem(bambu);
+
+    std::shared_ptr<Item> keris = std::make_shared<Item>("keris", "to open doors");
+    hidden_village->addItem(keris);
+
+// GHOSTS
+    std::shared_ptr<NPC> pocong = std::make_shared<NPC>("pocong", "a scary character", "oooo i'm scary");
+    abandoned_school->addCharacter(pocong);
+
+    std::shared_ptr<NPC> tuyul = std::make_shared<NPC>("tuyul", "a scary character", "oooo i'm scary");
+    cyber_cafe->addCharacter(tuyul);
+
+    std::shared_ptr<NPC> genderuwo = std::make_shared<NPC>("genderuwo", "a scary character", "oooo i'm scary");
+    hidden_bunker->addCharacter(genderuwo);
+
+    std::shared_ptr<NPC> siluman = std::make_shared<NPC>("siluman", "a scary character", "oooo i'm scary");
+    shadow_puppet_theater->addCharacter(siluman);
+
+    std::shared_ptr<NPC> hantu_penjaga = std::make_shared<NPC>("hantu_penjaga_candi", "a scary character", "oooo i'm scary");
+    candi->addCharacter(hantu_penjaga);
 
     ZOOrkEngine zoork(start);
 
