@@ -34,9 +34,13 @@ void ZOOrkEngine::run()
         {
             handleGoCommand(arguments);
         }
-        else if ((command == "look") || (command == "inspect"))
+        else if (command == "look")
         {
             handleLookCommand(arguments);
+        }
+        else if (command == "inspect")
+        {
+            handleInspectCommand(arguments);
         }
         else if (command == "talk")
         {
@@ -50,7 +54,7 @@ void ZOOrkEngine::run()
         {
             handleDropCommand(arguments);
         }
-        else if (command == "quit")
+        else if ((command == "quit") || (command == "exit"))
         {
             handleQuitCommand(arguments);
         }
@@ -62,17 +66,18 @@ void ZOOrkEngine::run()
         {
             handleHelpCommand();
         }
-        else if (command == "use") {
+        else if (command == "use")
+        {
             handleUseCommand(arguments);
         }
         else
         {
             std::cout << "I don't understand that command.\n";
         }
-        
+
         if (checkAllNPCsDefeated())
         {
-            std::cout << "Congratulations! You have defeated all NPCs. You win!" << std::endl;
+            std::cout << "Congratulations! You have defeated all the ghosts. You win!" << std::endl;
             gameOver = true;
         }
     }
@@ -150,10 +155,11 @@ void ZOOrkEngine::handleTalkCommand(std::vector<std::string> arguments)
     // get the npc name from user
     std::string bindWord = arguments[0];
 
-    if(bindWord == "to"){
+    if (bindWord == "to")
+    {
         std::string npcName = arguments[1];
         Room *currentRoom = player->getCurrentRoom();
-    // check if there's that npc in the room
+        // check if there's that npc in the room
         if (currentRoom->hasCharacter(npcName))
         {
             // get the npc object
@@ -166,9 +172,10 @@ void ZOOrkEngine::handleTalkCommand(std::vector<std::string> arguments)
             std::cout << npcName << " doesn't exist here." << std::endl;
         }
     }
-    else{
+    else
+    {
         std::cout << "What do you mean?" << std::endl;
-    }    
+    }
 }
 
 void ZOOrkEngine::handleTakeCommand(std::vector<std::string> arguments)
@@ -191,6 +198,27 @@ void ZOOrkEngine::handleTakeCommand(std::vector<std::string> arguments)
     else
     {
         std::cout << "There is no " << itemName << " here." << std::endl;
+    }
+}
+
+void ZOOrkEngine::handleInspectCommand(std::vector<std::string> arguments)
+{
+    // To be implemented
+    if (arguments.empty())
+    {
+        std::cout << "Inspect what?" << std::endl;
+        return;
+    }
+
+    std::string itemName = arguments[0]; // Assuming single word item names for simplicity
+    if (player->hasItem(itemName))
+    {
+        std::shared_ptr<Item> item = player->getItem(itemName);
+        std::cout << item->getDescription() << std::endl;
+    }
+    else
+    {
+        std::cout << "What is that? I can\'t find it in your inventory" << std::endl;
     }
 }
 
@@ -248,15 +276,17 @@ void ZOOrkEngine::handleHelpCommand()
 
 void ZOOrkEngine::handleUseCommand(std::vector<std::string> arguments)
 {
-    if(arguments.size() < 2) {
+    if (arguments.size() < 2)
+    {
         std::cout << "Use what on what?" << std::endl;
         return;
     }
 
     std::string itemName = arguments[0];
     std::string targetName = arguments[2];
-    
-    if (!player->hasItem(itemName)) {
+
+    if (!player->hasItem(itemName))
+    {
         std::cout << "You don't have a " << itemName << "!" << std::endl;
         return;
     }
@@ -266,7 +296,7 @@ void ZOOrkEngine::handleUseCommand(std::vector<std::string> arguments)
 
     if (npc)
     {
-        if (npc->isDefeated()) 
+        if (npc->isDefeated())
         {
             std::cout << targetName << " is already defeated!" << std::endl;
         }
@@ -295,11 +325,11 @@ std::vector<std::string> ZOOrkEngine::tokenizeString(const std::string &input)
     return tokens;
 }
 
-bool ZOOrkEngine::checkAllNPCsDefeated() 
+bool ZOOrkEngine::checkAllNPCsDefeated()
 {
-    for (const auto& npc : allNPCs) 
+    for (const auto &npc : allNPCs)
     {
-        if (!npc->isDefeated()) 
+        if (!npc->isDefeated())
         {
             return false;
         }
@@ -315,6 +345,7 @@ std::string ZOOrkEngine::makeLowercase(std::string input)
     return output;
 }
 
-void ZOOrkEngine::addNPC(std::shared_ptr<NPC> npc){
+void ZOOrkEngine::addNPC(std::shared_ptr<NPC> npc)
+{
     allNPCs.push_back(npc);
 }

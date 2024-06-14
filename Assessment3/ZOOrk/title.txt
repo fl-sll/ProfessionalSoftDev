@@ -38,11 +38,14 @@ Commands to Navigate and Survive:
 - Go: Move your character in a specified direction if an exit is available.
   - Example: `go north`
 
-- Look / Inspect: Provides a detailed description of your surroundings.
+- Look: Provides a detailed description of your surroundings.
   - Example: `look north` or `inspect north`
 
 - Take / Get: Adds a specified item to your inventory.
   - Example: `take key` or `get key`
+
+- Inpsect: Provides a detailed description of the item in your inventory.
+  - Example: `inspect garam`
 
 - Drop: Removes an item from your inventory and places it in your current location.
   - Example: `drop key`
@@ -56,7 +59,7 @@ Commands to Navigate and Survive:
 - Help: Displays this help menu.
   - Example: `help`
 
-- Quit: Exits the game.
+- Quit /  Exit: Exits the game.
   - Example: `quit`
 
 ---

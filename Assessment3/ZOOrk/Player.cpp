@@ -53,6 +53,18 @@ std::shared_ptr<Item> Player::takeItem(const std::string& itemName)
     throw std::runtime_error("Item not found");
 }
 
+std::shared_ptr<Item> Player::getItem(const std::string& itemName)
+{
+    auto it = std::find_if(inventory.begin(), inventory.end(), [&](const std::shared_ptr<Item> &item)
+                           { return item->getName() == itemName; });
+    if (it != inventory.end())
+    {
+        std::shared_ptr<Item> item = *it;
+        return item;
+    }
+    throw std::runtime_error("Item not found");
+}
+
 
 bool Player::hasItem(const std::string& itemName) const {
     struct ItemNameMatcher {
@@ -73,7 +85,7 @@ void Player::showInventory() const {
     } else {
         std::cout << "You are carrying: " << std::endl;
         for (const auto& item : inventory) {
-            std::cout << "- " << item->getName() << ": " << item->getDescription() << std::endl;
+            std::cout << "- " << item->getName() << std::endl;
         }
     }
 }

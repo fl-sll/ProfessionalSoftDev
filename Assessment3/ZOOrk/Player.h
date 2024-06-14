@@ -35,6 +35,7 @@ public:
     bool hasItem(const std::string &itemName) const;
     void showInventory() const;
     std::shared_ptr<Item> takeItem(const std::string &itemName);
+    std::shared_ptr<Item> getItem(const std::string &itemName);
 
     void interactWithNPC(std::shared_ptr<NPC> npc);
 

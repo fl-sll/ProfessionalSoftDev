@@ -40,6 +40,8 @@ private:
 
     void handleUseCommand(std::vector<std::string>);
     
+    void handleInspectCommand(std::vector<std::string>);
+    
     bool checkAllNPCsDefeated();
 
     void handleHelpCommand();
