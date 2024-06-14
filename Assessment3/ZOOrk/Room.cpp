@@ -84,7 +84,6 @@ std::shared_ptr<Passage> Room::getPassage(const std::string &direction)
         {
             std::cout << "It is impossible to go " << direction << std::endl;
             return nullptr;
-            // direction = currentDirection;
         }
     }
 }

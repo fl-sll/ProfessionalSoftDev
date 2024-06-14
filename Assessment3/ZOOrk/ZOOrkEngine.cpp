@@ -9,7 +9,6 @@
 #include <vector>
 #include <fstream>
 // TODO change this to something global
-// #include "../../../../../../msys64/mingw64/include/c++/11.2.0/bits/algorithmfwd.h"
 
 ZOOrkEngine::ZOOrkEngine(std::shared_ptr<Room> start)
 {
@@ -132,12 +131,6 @@ void ZOOrkEngine::handleGoCommand(std::vector<std::string> arguments)
 
 void ZOOrkEngine::handleLookCommand(std::vector<std::string> arguments)
 {
-    // To be implemented
-    // if (arguments.empty())
-    // {
-    //     std::cout << "Look at what?" << std::endl;
-    //     return;
-    // }
     Room *currentRoom = player->getCurrentRoom();
     std::cout << "You are currently in " << currentRoom->getName() << std::endl;
     std::cout << currentRoom->getDescription() << std::endl;
@@ -155,13 +148,11 @@ void ZOOrkEngine::handleTalkCommand(std::vector<std::string> arguments)
     }
 
     // get the npc name from user
-    
     std::string bindWord = arguments[0];
 
     if(bindWord == "to"){
         std::string npcName = arguments[1];
         Room *currentRoom = player->getCurrentRoom();
-    // std::cout << itemName << std::endl;
     // check if there's that npc in the room
         if (currentRoom->hasCharacter(npcName))
         {
@@ -191,19 +182,16 @@ void ZOOrkEngine::handleTakeCommand(std::vector<std::string> arguments)
 
     std::string itemName = arguments[0]; // Assuming single word item names for simplicity
     Room *currentRoom = player->getCurrentRoom();
-    // std::cout << itemName << std::endl;
     if (currentRoom->hasItem(itemName))
     {
         std::shared_ptr<Item> item = currentRoom->takeItem(itemName);
         Player::instance()->addItem(item);
-        // currentRoom -> removeItem(itemName);
         std::cout << "You took the " << itemName << "." << std::endl;
     }
     else
     {
         std::cout << "There is no " << itemName << " here." << std::endl;
     }
-    // std::cout << "This functionality is not yet enabled.\n";
 }
 
 void ZOOrkEngine::handleDropCommand(std::vector<std::string> arguments)
@@ -221,7 +209,6 @@ void ZOOrkEngine::handleDropCommand(std::vector<std::string> arguments)
     if (Player::instance()->hasItem(itemName))
     {
         std::shared_ptr<Item> item = player->takeItem(itemName); // Use takeItem to get the item object
-        // Player::instance()->takeItem(itemName);
         currentRoom->addItem(item);
         std::cout << "You dropped the " << itemName << "." << std::endl;
     }
@@ -229,7 +216,6 @@ void ZOOrkEngine::handleDropCommand(std::vector<std::string> arguments)
     {
         std::cout << "You don't have a " << itemName << "." << std::endl;
     }
-    // std::cout << "This functionality is not yet enabled.\n";
 }
 
 void ZOOrkEngine::handleQuitCommand(std::vector<std::string> arguments)

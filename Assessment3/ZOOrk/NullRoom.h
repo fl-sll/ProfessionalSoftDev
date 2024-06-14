@@ -12,8 +12,6 @@ class NullRoom : public Room
 public:
     NullRoom();
 
-// private:
-    // NullRoom() : Room("Nowhere", "This is a nonplace.", std::make_shared<NullCommand>()) {}
 };
 
 #endif // ZOORK_NULLROOM_H

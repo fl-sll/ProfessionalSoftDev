@@ -39,9 +39,6 @@ void NPC::interact(Player& player) {
     }
 }
 
-
-
 bool NPC::isDefeated() const {
     return defeated;
 }
-

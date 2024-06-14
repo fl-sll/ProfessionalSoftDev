@@ -42,12 +42,10 @@ public:
     void getItem() const;
 
 protected:
-    //    std::vector<Item*> items;
     std::vector<std::shared_ptr<NPC>> characters;
     std::map<std::string, std::shared_ptr<Passage>> passageMap;
 
 private:
-    // std::vector<NPC*> characters;
     std::string name;
     std::string description;
     std::vector<std::shared_ptr<Item>> items;
