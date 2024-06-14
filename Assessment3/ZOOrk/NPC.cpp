@@ -1,8 +1,8 @@
 #include "NPC.h"
 #include <iostream>
 
-NPC::NPC(const std::string& name, const std::string& description, const std::string& dialogue, NPCType type, int attackPower)
-    : Character(name, description), dialogue(dialogue), type(type), attackPower(attackPower) {}
+NPC::NPC(const std::string& name, const std::string& description, const std::string& dialogue)
+    : Character(name, description), dialogue(dialogue) {}
 
 NPC::~NPC() {}
 
@@ -14,20 +14,20 @@ void NPC::setDialogue(const std::string& dialogue) {
     this->dialogue = dialogue;
 }
 
-NPC::NPCType NPC::getType() const {
-    return type;
-}
+// NPC::NPCType NPC::getType() const {
+//     return type;
+// }
 
-void NPC::setType(NPCType type) {
-    this->type = type;
-}
+// void NPC::setType(NPCType type) {
+//     this->type = type;
+// }
 
 void NPC::interact(Player& player) {
-    if (type == NPCType::FRIENDLY) {
-        friendlyInteract(player);
-    } else if (type == NPCType::HOSTILE) {
-        hostileInteract(player);
-    }
+    // if (type == NPCType::FRIENDLY) {
+    //     friendlyInteract(player);
+    // } else if (type == NPCType::HOSTILE) {
+    //     hostileInteract(player);
+    // }
 }
 
 void NPC::friendlyInteract(Player& player) {

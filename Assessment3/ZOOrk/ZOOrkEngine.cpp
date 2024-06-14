@@ -130,6 +130,7 @@ void ZOOrkEngine::handleLookCommand(std::vector<std::string> arguments)
     std::cout << "You are currently in " << currentRoom->getName() << std::endl;
     std::cout << currentRoom->getDescription() << std::endl;
     currentRoom->getItem();
+    currentRoom->getCharacter();
 
     // std::cout << "This functionality is not yet enabled.\n";
 }

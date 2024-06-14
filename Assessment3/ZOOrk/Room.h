@@ -9,25 +9,28 @@
 #include "RoomDefaultEnterCommand.h"
 #include "Item.h"
 #include "Location.h"
+#include "NPC.h"
 #include <map>
 #include <algorithm>
 
+// class NullRoom;
 class Passage;
+class NPC;
 
-class Room : public Location {
+class Room : public Location
+{
 public:
     Room(const std::string &, const std::string &);
     Room(const std::string &, const std::string &, std::shared_ptr<Command>);
 
     void addItem(std::shared_ptr<Item> item);
-    void removeItem(const std::string& itemName);
-    bool hasItem(const std::string& itemName) const;
-    std::shared_ptr<Item> takeItem(const std::string& itemName);
+    void removeItem(const std::string &itemName);
+    bool hasItem(const std::string &itemName) const;
+    std::shared_ptr<Item> takeItem(const std::string &itemName);
 
-
-//    void addCharacter(Character*);
-//    void removeCharacter(const std::string&);
-//    Character* getCharacter(const std::string&);
+    void addCharacter(std::shared_ptr<NPC> npc);
+    void removeCharacter(const std::string &npc);
+    void getCharacter() const;
 
     void addPassage(const std::string &, std::shared_ptr<Passage>);
     void removePassage(const std::string &);
@@ -37,16 +40,15 @@ public:
     void getItem() const;
 
 protected:
-//    std::vector<Item*> items;
-//    std::vector<Character*> characters;
+    //    std::vector<Item*> items;
+    std::vector<std::shared_ptr<NPC>> characters;
     std::map<std::string, std::shared_ptr<Passage>> passageMap;
 
 private:
+    // std::vector<NPC*> characters;
     std::string name;
     std::string description;
-    std::vector<std::shared_ptr<Item> > items;
+    std::vector<std::shared_ptr<Item>> items;
 };
 
-
-
-#endif //ZOORK_ROOM_H
+#endif // ZOORK_ROOM_H

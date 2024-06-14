@@ -7,10 +7,13 @@
 
 #include "Room.h"
 
-class NullRoom : public Room {
+class NullRoom : public Room
+{
 public:
     NullRoom();
+
+// private:
+    // NullRoom() : Room("Nowhere", "This is a nonplace.", std::make_shared<NullCommand>()) {}
 };
 
-
-#endif //ZOORK_NULLROOM_H
+#endif // ZOORK_NULLROOM_H

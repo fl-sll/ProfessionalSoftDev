@@ -4,32 +4,37 @@
 #include "Character.h"
 #include "Location.h"
 #include "NullRoom.h"
-#include "Item.h"  // Include Item.h for shared_ptr<Item>
+#include "Room.h"
+#include "Item.h" // Include Item.h for shared_ptr<Item>
 #include <vector>
 #include <algorithm>
 #include <memory>
 
 class NPC; // Forward declaration of NPC class
-
-class Player : public Character {
+class Room;
+class NullRoom;
+class Player : public Character
+{
 public:
-    static Player *instance() {
-        if (!playerInstance) {
+    static Player *instance()
+    {
+        if (!playerInstance)
+        {
             playerInstance = new Player();
         }
         return Player::playerInstance;
     }
 
-    void setCurrentRoom(Room*);
-    Room* getCurrentRoom() const;
+    void setCurrentRoom(Room *);
+    Room *getCurrentRoom() const;
 
     void addItem(std::shared_ptr<Item> item);
-    void removeItem(const std::string& itemName);
-    bool hasItem(const std::string& itemName) const;
+    void removeItem(const std::string &itemName);
+    bool hasItem(const std::string &itemName) const;
     void showInventory() const;
-    std::shared_ptr<Item> takeItem(const std::string& itemName);
+    std::shared_ptr<Item> takeItem(const std::string &itemName);
 
-    void useWeapon(std::shared_ptr<Item> weapon, NPC& npc); // Forward declaration of NPC class
+    void useWeapon(std::shared_ptr<Item> weapon, NPC &npc); // Forward declaration of NPC class
 
     void usePotion(std::shared_ptr<Item> potion);
 
@@ -38,26 +43,13 @@ public:
 
 private:
     static Player *playerInstance;
-    Room* currentRoom;
-    std::vector<std::shared_ptr<Item> > inventory;
+    Room *currentRoom;
+    std::vector<std::shared_ptr<Item>> inventory;
 
-    Player() : Character("You", "You are a person, alike in dignity to any other, but uniquely you."), currentRoom(new NullRoom()) {}
+    Player() : Character("You", "You are a person, alike in dignity to any other, but uniquely you.") {}
 };
 
-#endif //ZOORK_PLAYER_H
-
-
-
-
-
-
-
-
-
-
-
-
-
+#endif // ZOORK_PLAYER_H
 
 // //
 // // Created by Richard Skarbez on 5/7/23.

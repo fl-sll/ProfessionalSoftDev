@@ -42,7 +42,7 @@ bool Room::hasItem(const std::string &itemName) const
                        { return item->getName() == itemName; });
 }
 
-std::shared_ptr<Item> Room::takeItem(const std::string& itemName)
+std::shared_ptr<Item> Room::takeItem(const std::string &itemName)
 {
     auto it = std::find_if(items.begin(), items.end(), [&](const std::shared_ptr<Item> &item)
                            { return item->getName() == itemName; });
@@ -73,7 +73,8 @@ std::shared_ptr<Passage> Room::getPassage(const std::string &direction)
 {
     std::string currentDirection;
 
-    while(true) {
+    while (true)
+    {
         auto it = passageMap.find(direction);
         if (it != passageMap.end())
         {
@@ -81,14 +82,14 @@ std::shared_ptr<Passage> Room::getPassage(const std::string &direction)
         }
         else
         {
-            std::cout << "It is impossible to go "<< direction << std::endl;
+            std::cout << "It is impossible to go " << direction << std::endl;
             return nullptr;
             // direction = currentDirection;
         }
     }
-    
 }
-std::string Room::getName() const {
+std::string Room::getName() const
+{
     return name;
 }
 
@@ -99,8 +100,35 @@ std::string Room::getDescription() const
 
 void Room::getItem() const
 {
-    if(!items.empty()){
-    for(auto item : items){
-        std::cout << "There's a " << item->getName() << std::endl;
-    }}
+    if (!items.empty())
+    {
+        for (auto item : items)
+        {
+            std::cout << "There's a " << item->getName() << std::endl;
+        }
+    }
 }
+
+void Room::addCharacter(std::shared_ptr<NPC> npc)
+{
+    characters.push_back(npc);
+};
+void Room::removeCharacter(const std::string &c)
+{
+    auto it = std::remove_if(characters.begin(), characters.end(), [&](const std::shared_ptr<NPC> &character)
+                             { return character->getName() == c; });
+    if (it != characters.end())
+    {
+        characters.erase(it);
+    }
+};
+void Room::getCharacter() const
+{
+    if (!characters.empty())
+    {
+        for (auto character : characters)
+        {
+            std::cout << "You encounter " << character->getName() << std::endl;
+        }
+    }
+};

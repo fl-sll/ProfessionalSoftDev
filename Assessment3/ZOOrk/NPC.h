@@ -5,18 +5,20 @@
 #include "Player.h"
 #include <string>
 
+class Player;
+
 class NPC : public Character {
 public:
-    enum class NPCType { FRIENDLY, HOSTILE };
+    // enum class NPCType { FRIENDLY, HOSTILE };
 
-    NPC(const std::string& name, const std::string& description, const std::string& dialogue, NPCType type, int attackPower);
+    NPC(const std::string& name, const std::string& description, const std::string& dialogue);
     ~NPC();
 
     std::string getDialogue() const;
     void setDialogue(const std::string& dialogue);
 
-    NPCType getType() const;
-    void setType(NPCType type);
+    // NPCType getType() const;
+    // void setType(NPCType type);
 
     void interact(Player& player);
     void takeDamage(int damage);
@@ -24,7 +26,7 @@ public:
 
 private:
     std::string dialogue;
-    NPCType type;
+    // NPCType type;
     int attackPower;
 
     void friendlyInteract(Player& player);

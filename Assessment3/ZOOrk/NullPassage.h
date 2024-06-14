@@ -6,6 +6,9 @@
 #define ZOORK_NULLPASSAGE_H
 
 #include "Passage.h"
+#include "Room.h"
+
+class Room;
 
 class NullPassage : public Passage {
 public:
