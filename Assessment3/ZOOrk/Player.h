@@ -27,8 +27,6 @@ public:
 
     void setCurrentRoom(Room *);
     Room *getCurrentRoom() const;
-    void setPrison(Room *);
-    Room *getPrison() const;
 
     void addItem(std::shared_ptr<Item> item);
     void removeItem(const std::string &itemName);
@@ -45,7 +43,6 @@ public:
 private:
     static Player *playerInstance;
     Room *currentRoom;
-    Room *prison;
     std::vector<std::shared_ptr<Item>> inventory;
 
     Player() : Character("You", "You are a person, alike in dignity to any other, but uniquely you.") {}

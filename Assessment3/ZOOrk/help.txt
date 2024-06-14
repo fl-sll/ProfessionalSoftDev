@@ -10,11 +10,11 @@ ghost encounters that will test your bravery and cleverness at every turn. Here 
    - Description: Moves your character in the specified direction if an exit is available.
    - Example: `go north` 
 
-2. Look / Inspect
-   - Usage: `look <direction>` or `inspect <direction>`
+2. Look 
+   - Usage: `look <direction>`
    - Description: Provides a detailed description of what you can see in the specified direction <north/west/south/east/n/s/e/w>. 
    This can help you discover hidden items or clues.
-   - Example: `look north` or `look n` or `inspect north` or `inspect n `
+   - Example: `look north` or `look n`
 
 3. Take / Get
    - Usage: `take <item>` or `get <item>`
@@ -36,15 +36,20 @@ ghost encounters that will test your bravery and cleverness at every turn. Here 
    - Description: Displays a list of items currently in your inventory and those that are equipped.
    - Example: `inventory`
 
-7. Help
+7. Inspect 
+   - Usage: `inspect <itemName>`
+   - Description: Shows a description of the specific item on player inventory.
+   - Example: `inspect garam`   
+
+8. Help
     - Usage: `help`
     - Description: Displays this help menu.
     - Example: `help`
 
-8. Quit
-    - Usage: `quit`
+9. Quit / Exit
+    - Usage: `quit` or `exit`
     - Description: Exits the game.
-    - Example: `quit`
+    - Example: `quit` or `exit`
 
 ---
 

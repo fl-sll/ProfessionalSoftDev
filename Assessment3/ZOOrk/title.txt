@@ -12,9 +12,12 @@ Welcome to....
 
 Welcome to 10 Pintu, an Indonesian Horror Text-based Game
 
-In "10 Pintu," you find yourself in the eerie Desa Kerinci Graveyard, a forsaken village haunted by restless spirits. The crumbling gravestones and the chilling atmosphere set the stage for a spine-tingling adventure. You awaken in this haunting dimension and must navigate through ten haunted locations, each shrouded in mystery and home to ghosts and riddles.
+In "10 Pintu," you find yourself in the eerie Desa Kerinci Graveyard, a forsaken village haunted by restless spirits. 
+The crumbling gravestones and the chilling atmosphere set the stage for a spine-tingling adventure. 
+You awaken in this haunting dimension and must navigate through ten haunted locations, each shrouded in mystery and home to ghosts and riddles.
 
-As you explore the village, your goal is to investigate various areas, acquire necessary objects, solve intricate puzzles, and ultimately find a way to escape the terrifying realm. The journey will test your bravery and cleverness at every turn, with unexpected occurrences and ghostly encounters challenging your resolve.
+As you explore the village, your goal is to investigate various areas, acquire necessary objects, and maybe… you ultimately find a way to escape the terrifying realm. 
+The journey will test your bravery and cleverness at every turn, with unexpected occurrences and ghostly encounters challenging your resolve.
 
 Locations to Explore:
 1. Desa Kerinci Graveyard: The starting point of your adventure, filled with crumbling gravestones and eerie silence.
@@ -44,7 +47,7 @@ Commands to Navigate and Survive:
 - Take / Get: Adds a specified item to your inventory.
   - Example: `take key` or `get key`
 
-- Inpsect: Provides a detailed description of the item in your inventory.
+- Inspect: Provides a detailed description of the item in your inventory.
   - Example: `inspect garam`
 
 - Drop: Removes an item from your inventory and places it in your current location.
@@ -59,8 +62,8 @@ Commands to Navigate and Survive:
 - Help: Displays this help menu.
   - Example: `help`
 
-- Quit /  Exit: Exits the game.
-  - Example: `quit`
+- Quit / Exit: Exits the game.
+  - Example: `quit` or `exit`
 
 ---
 

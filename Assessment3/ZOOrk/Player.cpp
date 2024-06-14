@@ -12,14 +12,6 @@ Room* Player::getCurrentRoom() const {
     return currentRoom;
 }
 
-void Player::setPrison(Room* room) {
-    prison = room;
-}
-
-Room* Player::getPrison() const{
-    return prison;
-};
-
 void Player::addItem(std::shared_ptr<Item> item) {
     inventory.push_back(item);
 }
