@@ -82,6 +82,6 @@ void Player::showInventory() const {
     }
 }
 
-void Player::interactWithNPC(std::shared_ptr<NPC> npc) {
-    npc->interact(*this);
+void Player::interactWithNPC(std::shared_ptr<NPC> npc, std::string& itemName) {
+    npc->interact(*this, itemName);
 }

@@ -24,11 +24,12 @@ void NPC::setDialogue(const std::string& dialogue) {
     this->dialogue = dialogue;
 }
 
-void NPC::interact(Player& player) {
+void NPC::interact(Player& player, std::string& itemName) {
     if (!isDefeated()) {
-        if(player.hasItem(defeatItem)) {
+        if(itemName == defeatItem) {
             defeated = true;
             std::cout << "You defeated " << name << " with " << defeatItem << std::endl;
+            player.removeItem(itemName);
         }
         else {
             std::cout << "You don't have the right item to defeat " << name << std::endl;

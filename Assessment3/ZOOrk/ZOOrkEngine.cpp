@@ -308,8 +308,8 @@ void ZOOrkEngine::handleUseCommand(std::vector<std::string> arguments)
         }
         else
         {
-            player->interactWithNPC(npc);
-            player->removeItem(itemName);
+            player->interactWithNPC(npc, itemName);
+            // player->removeItem(itemName);
         }
     }
     else

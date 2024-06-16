@@ -35,7 +35,7 @@ public:
     std::shared_ptr<Item> takeItem(const std::string &itemName);
     std::shared_ptr<Item> getItem(const std::string &itemName);
 
-    void interactWithNPC(std::shared_ptr<NPC> npc);
+    void interactWithNPC(std::shared_ptr<NPC> npc, std::string &itemName);
 
     Player(const Player &) = delete;
     Player &operator=(const Player &) = delete;

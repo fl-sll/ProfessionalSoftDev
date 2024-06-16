@@ -18,7 +18,7 @@ public:
     void setDialogue(const std::string& dialogue);
 
 
-    void interact(Player& player);
+    void interact(Player& player, std::string& itemName);
     bool isDefeated() const;
 
 
