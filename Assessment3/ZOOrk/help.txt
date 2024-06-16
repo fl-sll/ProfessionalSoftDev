@@ -27,26 +27,31 @@ ghost encounters that will test your bravery and cleverness at every turn. Here 
    - Example: `drop key`
 
 5. Use
-   - Usage: `use <item>`
+   - Usage: `use <item> on <ghost>`
    - Description: Uses the specified item from your inventory. This is typically used for consumables like potions.
    - Example: `use health potion`
 
-6. Inventory
+6. Talk
+   - Usage: `talk to <ghost>`
+   - Description: Allow player to talk to specified ghost. This is typicallly used to get hints.
+   - Example: `talk to pocong`
+
+7. Inventory
    - Usage: `inventory`
    - Description: Displays a list of items currently in your inventory and those that are equipped.
    - Example: `inventory`
 
-7. Inspect 
+8. Inspect 
    - Usage: `inspect <itemName>`
    - Description: Shows a description of the specific item on player inventory.
    - Example: `inspect garam`   
 
-8. Help
+9. Help
     - Usage: `help`
     - Description: Displays this help menu.
     - Example: `help`
 
-9. Quit / Exit
+10. Quit / Exit
     - Usage: `quit` or `exit`
     - Description: Exits the game.
     - Example: `quit` or `exit`
@@ -59,3 +64,4 @@ Additional Information
 - Interactions: Pay attention to the descriptions of each location. They often contain hints for the next steps or items you need to find.
 - Inventory Management: Keep track of the items in your inventory and equip or unequip them as needed to face different challenges.
 - Dynamic Events: Be prepared for unexpected events that can alter the course of the game. Stay netral and adapt your strategy accordingly.
+

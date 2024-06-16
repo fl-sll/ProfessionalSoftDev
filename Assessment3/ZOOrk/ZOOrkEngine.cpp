@@ -12,7 +12,7 @@
 
 ZOOrkEngine::ZOOrkEngine(std::shared_ptr<Room> start)
 {
-        std::ifstream title("title.txt");
+    std::ifstream title("title.txt");
 
     if (title.is_open())
     {
@@ -22,8 +22,8 @@ ZOOrkEngine::ZOOrkEngine(std::shared_ptr<Room> start)
     else
     {
         std::cerr << "Error: could not open file" << std::endl;
-    }   
-    
+    }
+
     player = Player::instance();
     player->setCurrentRoom(start.get());
     player->getCurrentRoom()->enter();
@@ -91,7 +91,7 @@ void ZOOrkEngine::run()
 
         if (checkAllNPCsDefeated())
         {
-            std::cout << "swoooshh.....   swoooshhh..... (sound of the wind rushing). \n The realm is shaking!! \nCongratulation, now the realm is opened slowly, You have limited time to escape from the realm and go back to your human realm, GOOO... GOOOO.. before you trapped foreverrr......." << std::endl;
+            std::cout << "swoooshh.....   swoooshhh..... (sound of the wind rushing). \nThe realm is shaking!! \nCongratulation, now the realm is opened slowly, You have limited time to escape from the realm and go back to your human realm, GOOO... GOOOO.. before you trapped foreverrr......." << std::endl;
             gameOver = true;
         }
     }
@@ -121,14 +121,6 @@ void ZOOrkEngine::handleGoCommand(std::vector<std::string> arguments)
     else if (arguments[0] == "w" || arguments[0] == "west")
     {
         direction = "west";
-    }
-    else if (arguments[0] == "u" || arguments[0] == "up")
-    {
-        direction = "up";
-    }
-    else if (arguments[0] == "d" || arguments[0] == "down")
-    {
-        direction = "down";
     }
     else
     {
@@ -254,12 +246,23 @@ void ZOOrkEngine::handleQuitCommand(std::vector<std::string> arguments)
 {
     std::string input;
     std::cout << "Are you sure you want to QUIT?\n> ";
-    std::cin >> input;
+    // std::cin >> input;
+    std::getline(std::cin, input);
     std::string quitStr = makeLowercase(input);
 
     if (quitStr == "y" || quitStr == "yes")
     {
+        std::cout << "See you next time..." << std::endl;
         gameOver = true;
+    }
+    else if(quitStr == "n" || quitStr == "no"){
+        std::cout << "continuing..." << std::endl;
+        return;
+    }
+    else{
+        std::cout << "please enter valid response: yes / no" << std::endl;
+        handleQuitCommand(arguments);
+        // return;
     }
 }
 
@@ -306,6 +309,7 @@ void ZOOrkEngine::handleUseCommand(std::vector<std::string> arguments)
         else
         {
             player->interactWithNPC(npc);
+            player->removeItem(itemName);
         }
     }
     else

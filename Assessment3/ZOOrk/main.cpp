@@ -48,13 +48,15 @@ int main()
     Passage::createBasicPassage(grandma_house.get(), candi.get(), "south", true);
     Passage::createBasicPassage(shadow_puppet_theater.get(), warung_angker.get(), "east", true);
     Passage::createBasicPassage(warung_angker.get(), cyber_cafe.get(), "south", true);
-    Passage::createBasicPassage(warung_angker.get(), candi.get(), "east", true); // TODO what???
     Passage::createBasicPassage(cyber_cafe.get(), hidden_village.get(), "east", true);
     Passage::createBasicPassage(cyber_cafe.get(), candi.get(), "west", true);
     Passage::createBasicPassage(hidden_bunker.get(), warung_angker.get(), "west", true);
     Passage::createBasicPassage(hidden_bunker.get(), hidden_village.get(), "south", true);
 
     // ITEMS
+    std::shared_ptr<Item> letter = std::make_shared<Item>("dirty_paper", "If you are reading this, you are stuck in another dimension. If you can't find me that means I'm dead. I heard that you need to kill everything in here. You need to look at all the items to defeat them all, they are spread out. Wish me luck. If you can go out, please tell Rwanda that I love her, forever.");
+    start->addItem(letter);
+
     std::shared_ptr<Item> daun = std::make_shared<Item>("daun_kelor", "Daun kelor, or moringa leaves, are believed to have protective properties against evil spirits. These leaves can dispel curses and provide a shield against ghostly entities, especially for the one that jump and haunt you in every step.");
     start->addItem(daun);
 
