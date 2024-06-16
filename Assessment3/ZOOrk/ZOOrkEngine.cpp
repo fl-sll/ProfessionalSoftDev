@@ -21,6 +21,7 @@ void ZOOrkEngine::run()
 {
     while (!gameOver)
     {
+        std::cout << "===============================================" << std::endl;
         std::cout << "Enter command\n> ";
 
         std::string input;
@@ -77,7 +78,7 @@ void ZOOrkEngine::run()
 
         if (checkAllNPCsDefeated())
         {
-            std::cout << "Congratulations! You have defeated all the ghosts. You win!" << std::endl;
+            std::cout << "swoooshh.....   swoooshhh..... (sound of the wind rushing). \n The realm is shaking!! \nCongratulation, now the realm is opened slowly, You have limited time to escape from the realm and go back to your human realm, GOOO... GOOOO.. before you trapped foreverrr......." << std::endl;
             gameOver = true;
         }
     }
@@ -180,13 +181,11 @@ void ZOOrkEngine::handleTalkCommand(std::vector<std::string> arguments)
 
 void ZOOrkEngine::handleTakeCommand(std::vector<std::string> arguments)
 {
-    // To be implemented
     if (arguments.empty())
     {
         std::cout << "Take what?" << std::endl;
         return;
     }
-
     std::string itemName = arguments[0]; // Assuming single word item names for simplicity
     Room *currentRoom = player->getCurrentRoom();
     if (currentRoom->hasItem(itemName))
@@ -203,7 +202,6 @@ void ZOOrkEngine::handleTakeCommand(std::vector<std::string> arguments)
 
 void ZOOrkEngine::handleInspectCommand(std::vector<std::string> arguments)
 {
-    // To be implemented
     if (arguments.empty())
     {
         std::cout << "Inspect what?" << std::endl;
@@ -224,16 +222,13 @@ void ZOOrkEngine::handleInspectCommand(std::vector<std::string> arguments)
 
 void ZOOrkEngine::handleDropCommand(std::vector<std::string> arguments)
 {
-    // To be implemented
     if (arguments.empty())
     {
         std::cout << "Drop what?" << std::endl;
         return;
     }
-
     std::string itemName = arguments[0]; // Assuming single word item names for simplicity
     Room *currentRoom = Player::instance()->getCurrentRoom();
-
     if (Player::instance()->hasItem(itemName))
     {
         std::shared_ptr<Item> item = player->takeItem(itemName); // Use takeItem to get the item object
