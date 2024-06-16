@@ -19,52 +19,14 @@ You awaken in this haunting dimension and must navigate through ten haunted loca
 As you explore the village, your goal is to investigate various areas, acquire necessary objects, and maybe… you ultimately find a way to escape the terrifying realm. 
 The journey will test your bravery and cleverness at every turn, with unexpected occurrences and ghostly encounters challenging your resolve.
 
-Locations to Explore:
-1. Desa Kerinci Graveyard: The starting point of your adventure, filled with crumbling gravestones and eerie silence.
-2. Abandoned School: An old, decrepit building where the echoes of past students still linger.
-3. Jungle River: A mysterious river running through the dense jungle, concealing many secrets.
-4. Grandmother's House: An old, creepy house that holds many memories and hidden items.
-5. Shadow Puppet Theatre: A once lively theatre, now home to shadows and whispers.
-6. Warung Angker: A haunted local eatery with a dark past and ghostly patrons.
-7. Candi (Hindu Temple): An ancient temple, a place of spiritual significance and hidden dangers.
-8. Abandon Internet Cafe: A relic of the modern age, now deserted and eerie.
-9. Hidden Bunker: A concealed bunker with a mysterious purpose and chilling atmosphere.
-10. Hidden Village: A secluded village shrouded in mystery, the final challenge of your journey.
-
 Objective of the Game:
 - Investigate different haunted locations within the Desa Kerinci Graveyard.
 - Collect essential items and solve puzzles to progress.
 - Interact with ghosts and face eerie events that alter the course of your adventure.
 - Use your wits and courage to find a way out of the haunting dimension.
-
-Commands to Navigate and Survive:
-- Go: Move your character in a specified direction if an exit is available.
-  - Example: `go north`
-
-- Look: Provides a detailed description of your surroundings.
-  - Example: `look north` or `inspect north`
-
-- Take / Get: Adds a specified item to your inventory.
-  - Example: `take key` or `get key`
-
-- Inspect: Provides a detailed description of the item in your inventory.
-  - Example: `inspect garam`
-
-- Drop: Removes an item from your inventory and places it in your current location.
-  - Example: `drop key`
-
-- Use: Uses a specified item from your inventory.
-  - Example: `use health potion`
-
-- Inventory: Displays a list of items currently in your inventory.
-  - Example: `inventory`
-
-- Help: Displays this help menu.
-  - Example: `help`
-
-- Quit / Exit: Exits the game.
-  - Example: `quit` or `exit`
-
 ---
 
 Explore carefully, interact wisely, and may you find the courage to escape the horrors that await in "10 Pintu". Good luck!
+----
+
+note: use 'help' to get more information about the game

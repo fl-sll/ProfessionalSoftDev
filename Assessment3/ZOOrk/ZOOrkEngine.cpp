@@ -12,6 +12,18 @@
 
 ZOOrkEngine::ZOOrkEngine(std::shared_ptr<Room> start)
 {
+        std::ifstream title("title.txt");
+
+    if (title.is_open())
+    {
+        std::cout << title.rdbuf();
+        title.close();
+    }
+    else
+    {
+        std::cerr << "Error: could not open file" << std::endl;
+    }   
+    
     player = Player::instance();
     player->setCurrentRoom(start.get());
     player->getCurrentRoom()->enter();
@@ -19,6 +31,7 @@ ZOOrkEngine::ZOOrkEngine(std::shared_ptr<Room> start)
 
 void ZOOrkEngine::run()
 {
+
     while (!gameOver)
     {
         std::cout << "===============================================" << std::endl;
@@ -146,16 +159,13 @@ void ZOOrkEngine::handleLookCommand(std::vector<std::string> arguments)
 
 void ZOOrkEngine::handleTalkCommand(std::vector<std::string> arguments)
 {
-    // To be implemented
     if (arguments.empty())
     {
         std::cout << "Talk to who?" << std::endl;
         return;
     }
-
     // get the npc name from user
     std::string bindWord = arguments[0];
-
     if (bindWord == "to")
     {
         std::string npcName = arguments[1];
@@ -207,7 +217,6 @@ void ZOOrkEngine::handleInspectCommand(std::vector<std::string> arguments)
         std::cout << "Inspect what?" << std::endl;
         return;
     }
-
     std::string itemName = arguments[0]; // Assuming single word item names for simplicity
     if (player->hasItem(itemName))
     {
@@ -256,7 +265,7 @@ void ZOOrkEngine::handleQuitCommand(std::vector<std::string> arguments)
 
 void ZOOrkEngine::handleHelpCommand()
 {
-    std::ifstream help("../help.txt");
+    std::ifstream help("help.txt");
 
     if (help.is_open())
     {
@@ -285,7 +294,6 @@ void ZOOrkEngine::handleUseCommand(std::vector<std::string> arguments)
         std::cout << "You don't have a " << itemName << "!" << std::endl;
         return;
     }
-
     Room *currentRoom = player->getCurrentRoom();
     std::shared_ptr<NPC> npc = currentRoom->getNPC(targetName);
 
